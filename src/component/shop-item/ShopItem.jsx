@@ -24,14 +24,14 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
-  const { itemId, itemName, imgURL } = item;
+  const { itemId, name, img1 } = item;
   return (
     <div className="shop-item">
       <Slider {...settings}>
         <div>
           <img
             className="shop-item-slider-img"
-            src={imgURL}
+            src={img1}
             alt=""
             onClick={() => {
               history.push(`${match.url}/${itemId}`);
@@ -41,7 +41,7 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
         <div>
           <img
             className="shop-item-slider-img"
-            src={imgURL}
+            src={img1}
             alt=""
             onClick={() => {
               history.push(`${match.url}/${itemId}`);
@@ -51,7 +51,7 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
         <div>
           <img
             className="shop-item-slider-img"
-            src={imgURL}
+            src={img1}
             alt=""
             onClick={() => {
               history.push(`${match.url}/${itemId}`);
@@ -60,7 +60,7 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
         </div>
       </Slider>
       <div className="shop-item-info">
-        <p>{itemName}</p>
+        <p>{name}</p>
         <CustomButton
           onClick={() => {
             // console.log(addItemToCart(item));

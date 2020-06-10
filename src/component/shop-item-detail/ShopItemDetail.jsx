@@ -10,9 +10,9 @@ import "./ShopItemDetail.scss";
 const ShopItemDetail = ({ history, shopItem }) => {
   console.log(shopItem);
   const collection = useParams().collection;
-  const { itemName, itemPrice, imgURL } = shopItem;
+  const { name, price, img1 } = shopItem;
   //   const imgArr = Object.values(imgObj);
-  const imgArr = [imgURL, imgURL, imgURL];
+  const imgArr = [img1, img1, img1];
   const [renderImg, setImg] = useState(imgArr);
   const changeImg = (clickImg) => {
     setImg(clickImg);
@@ -27,8 +27,8 @@ const ShopItemDetail = ({ history, shopItem }) => {
         >
           {collection}
         </h3>
-        <h1>{itemName}</h1>
-        <h2>$ {itemPrice}</h2>
+        <h1>{name}</h1>
+        <h2>$ {price}</h2>
         <h4>
           slkdhfihfiwofhiwh
           <br />
