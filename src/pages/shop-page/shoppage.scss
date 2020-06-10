@@ -1,0 +1,17 @@
+.shop-page {
+    margin: 0 15%;
+    border: white solid 1px;
+    height: 1000px;
+
+    .shop-slider-container {
+        margin: 1rem auto;
+        width: 90%;
+        height: 400px;
+
+        .img-info {
+            height: 350px;
+            background: white;
+            color: black;
+        }
+    }
+}
