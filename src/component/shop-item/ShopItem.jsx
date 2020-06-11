@@ -12,6 +12,7 @@ import { NextArrow, PrevArrow } from "../../assets/slider-arrow-utils";
 
 // Action-----------------
 import { addItemToCart } from "../../redux/cart/cart-action";
+import Favorite from "../favorite-icon/Favorite";
 
 // Component----------------------
 const ShopItem = ({ addItemToCart, history, match, item }) => {
@@ -24,6 +25,7 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
+
   const { itemId, name, img1 } = item;
   return (
     <div className="shop-item">
@@ -60,7 +62,10 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
         </div>
       </Slider>
       <div className="shop-item-info">
-        <p>{name}</p>
+        <div className="shop-name-fav-container">
+          <p>{name}</p>
+          <Favorite item={item} />
+        </div>
         <CustomButton
           onClick={() => {
             // console.log(addItemToCart(item));

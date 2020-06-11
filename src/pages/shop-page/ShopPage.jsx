@@ -10,7 +10,6 @@ import { NextArrow, PrevArrow } from "../../assets/slider-arrow-utils";
 
 // Component-----------
 const ShopPage = ({ match: { path } }) => {
-  console.log(path);
   // slider setting
   const settings = {
     dots: true,
@@ -30,7 +29,6 @@ const ShopPage = ({ match: { path } }) => {
     //     }
     // ]
   };
-
   return (
     <div className="shop-page">
       <div className="shop-slider-container">

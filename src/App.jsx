@@ -1,16 +1,23 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-// import { connect } from "react-redux";
-
-import "./App.scss";
 
 // Pages----------
 import Header from "./component/header/Header";
-import ShopPage from "./pages/shop-page/ShopPage";
-import ShopCollectionPage from "./pages/shop-overview-page/ShopCollectionPage";
-import ShopItemPage from "./pages/shop-item-page/ShopItemPage";
-// import { connect } from "react-redux";
 
+// Component------
+import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
+
+import "./App.scss";
+import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
+
+// react lazy
+const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
+const ShopCollectionPage = lazy(() =>
+  import("./pages/shop-overview-page/ShopCollectionPage")
+);
+const ShopItemPage = lazy(() => import("./pages/shop-item-page/ShopItemPage"));
+
+// APP component
 const App = () => {
   return (
     <>
@@ -18,22 +25,25 @@ const App = () => {
       <div className="space" />
       <main>
         <Switch>
-          <Route exact path="/shop" component={ShopPage} />
-          <Route
-            exact
-            path="/shop/:collection"
-            component={ShopCollectionPage}
-          />
-          <Route path="/shop/:collection/:itemId" component={ShopItemPage} />
-          {/*<Route exact path="/" component={HomePage} />*/}
+          <ErrorBoundary>
+            <Suspense fallback={<LoadingSpinner />}>
+              <Route exact path="/" component={LoadingSpinner} />
+              <Route exact path="/shop" component={ShopPage} />
+              <Route
+                exact
+                path="/shop/:collection"
+                component={ShopCollectionPage}
+              />
+              <Route
+                path="/shop/:collection/:itemId"
+                component={ShopItemPage}
+              />
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </main>
     </>
   );
 };
-
-// const mapStateToProps = ({ shop: { shopItemDetail } }) => ({
-//     shopItemDetail,
-// });
 
 export default App;

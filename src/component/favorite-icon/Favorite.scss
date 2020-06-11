@@ -1,0 +1,8 @@
+.favorite-icon {
+  cursor: pointer;
+  color: pink;
+
+  &:hover {
+    background-color: pink;
+  }
+}

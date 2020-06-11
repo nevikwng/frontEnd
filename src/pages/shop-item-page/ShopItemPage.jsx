@@ -11,6 +11,7 @@ import {
   shopIsFetchingSelect,
 } from "../../redux/shop/shop-selector";
 import { shopItemStart } from "../../redux/shop/shop-action";
+import LoadingSpinner from "../../component/loading-spinner/LoadingSpinner";
 
 const ShopItemPage = ({ isFetching, shopItemStart }) => {
   const itemId = useParams().itemId;
@@ -23,7 +24,7 @@ const ShopItemPage = ({ isFetching, shopItemStart }) => {
   return (
     <div className="shop-item-page">
       <div className="shop-item-container">
-        {isFetching ? <div>Loading...</div> : <ShopItemDetail />}
+        {isFetching ? <LoadingSpinner /> : <ShopItemDetail />}
       </div>
     </div>
   );

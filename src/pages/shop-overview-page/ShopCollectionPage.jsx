@@ -4,6 +4,7 @@ import { createStructuredSelector } from "reselect";
 
 import "./ShopCollectionPage.scss";
 
+import LoadingSpinner from "../../component/loading-spinner/LoadingSpinner";
 import ShopItem from "../../component/shop-item/ShopItem";
 import {
   shopCollectionsSelect,
@@ -27,14 +28,18 @@ const ShopOverviewPage = ({
 
   return (
     <div className="collection-page">
-      <h1 className="collection-title">{collection}</h1>
-      <div className="collection-container">
-        {isFetching ? (
-          <div>Loading...</div>
-        ) : (
-          collections.map((item) => <ShopItem key={item.itemId} item={item} />)
-        )}
-      </div>
+      {isFetching ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <h1 className="collection-title">{collection}</h1>
+          <div className="collection-container">
+            {collections.map((item) => (
+              <ShopItem key={item.itemId} item={item} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

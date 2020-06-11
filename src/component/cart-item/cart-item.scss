@@ -3,8 +3,21 @@
   display: flex;
   height: 80px;
   margin-bottom: 15px;
+  position: relative;
 
-  img {
+  .cart-item-delete {
+    width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+
+    &:hover {
+      width: 60px;
+    }
+  }
+
+  .cart-item-img {
     width: 30%;
   }
 
