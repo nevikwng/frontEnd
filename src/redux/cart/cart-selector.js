@@ -23,5 +23,6 @@ export const cartCountSelect = createSelector([cartItemsSelect], (cartItems) =>
 
 export const likeCountSelect = createSelector(
   [favoriteItemsSelect],
-  (cartFavoriteItems) => cartFavoriteItems.length
+  (cartFavoriteItems) =>
+    cartFavoriteItems ? Object.keys(cartFavoriteItems).length : 0
 );

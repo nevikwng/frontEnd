@@ -19,10 +19,13 @@ export const likeCartItem = (item) => ({
   payload: item,
 });
 
-export const unlikeCartItem = (item) => {
-  console.log(item);
-  return {
-    type: cartActionTypes.UNLIKE_ITEM,
-    payload: item,
-  };
-};
+export const unlikeCartItem = (item) => ({
+  type: cartActionTypes.UNLIKE_ITEM,
+  payload: item,
+});
+
+export const addQuantity = (item, quantity) => ({
+  type: cartActionTypes.ADD_QUANTITY,
+  payload: item,
+  quantity,
+});

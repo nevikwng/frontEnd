@@ -4,4 +4,5 @@ export const cartActionTypes = {
   REOMOVE_ITEM: "REOMOVE_ITEM",
   LIKE_ITEM: "LIKE_ITEM",
   UNLIKE_ITEM: "UNLIKE_ITEM",
+  ADD_QUANTITY: "ADD_QUANTITY",
 };

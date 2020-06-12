@@ -18,11 +18,8 @@ const Favorite = ({
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
-    const check = cartFavoriteItems.filter(
-      (favItem) => favItem.itemId === item.itemId
-    );
     console.log("fire");
-    setIsFavorited(!!check[0]);
+    cartFavoriteItems && setIsFavorited(!!cartFavoriteItems[item.itemId]);
   }, []);
 
   const toFavHandler = () => {

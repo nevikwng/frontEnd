@@ -6,9 +6,10 @@ import { createStructuredSelector } from "reselect";
 import { shopItemDetailSelect } from "../../redux/shop/shop-selector";
 
 import "./ShopItemDetail.scss";
+import ShopCountButton from "../shop-count-button/ShopCountButton";
 
 const ShopItemDetail = ({ history, shopItem }) => {
-  console.log(shopItem);
+  // console.log(shopItem);
   const collection = useParams().collection;
   const { name, price, img1 } = shopItem;
   //   const imgArr = Object.values(imgObj);
@@ -38,6 +39,7 @@ const ShopItemDetail = ({ history, shopItem }) => {
           <br />
           iowfhsldfhoiwefhoi
         </h4>
+        <ShopCountButton cartItem={shopItem} />
       </div>
       <div className="shop-item-imgs-container">
         {imgArr.map((img) => (

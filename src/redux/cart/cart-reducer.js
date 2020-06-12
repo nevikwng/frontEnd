@@ -8,7 +8,7 @@ import {
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
-  cartFavoriteItems: [],
+  cartFavoriteItems: null,
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -28,7 +28,10 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case cartActionTypes.LIKE_ITEM:
       return {
         ...state,
-        cartFavoriteItems: [...state.cartFavoriteItems, action.payload],
+        cartFavoriteItems: {
+          ...state.cartFavoriteItems,
+          [action.payload.itemId]: action.payload,
+        },
       };
     case cartActionTypes.UNLIKE_ITEM:
       return {
@@ -36,6 +39,15 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartFavoriteItems: unlikeCartItem(
           state.cartFavoriteItems,
           action.payload
+        ),
+      };
+    case cartActionTypes.ADD_QUANTITY:
+      return {
+        ...state,
+        cartItems: addShopItemToCart(
+          state.cartItems,
+          action.payload,
+          action.quantity
         ),
       };
     default:
