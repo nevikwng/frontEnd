@@ -47,7 +47,7 @@ const ShopCollectionPage = ({
                 </Link>
               ))}
             <FilterBar
-              filterPrice={["lower", "highter"]}
+              filterPrice={["由低至高", "由高至低"]}
               title={"價格排序"}
               filterTitle={"Price"}
             />

@@ -82,29 +82,52 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
             ))}
           </Slider>
           <div style={{ height: "30px" }} />
+
+          {/* collection section */}
+          {/* Men */}
           <div className="shop-collection-section">
-            <div className="img" />
+            <div className="img-container">
+              <img src="https://i.ibb.co/ScLBjzX/shop-page-men.jpg" alt="" />
+            </div>
             <div className="content">
-              <h1>Men</h1>
-              <CustomButton onClick={() => history.push("/shop/men")}>
+              <h1>男士服飾系列</h1>
+              <p>非常適合假日休閒穿搭，機能與設計兼具</p>
+              <p>讓你的休閒日既時髦又不失舒適度</p>
+              <CustomButton
+                onClick={() => history.push("/shop/men")}
+                style={{ width: "100px" }}
+              >
                 了解詳情
               </CustomButton>
             </div>
           </div>
+          {/* Women */}
           <div className="shop-collection-section">
             <div className="content">
-              <h1>Women</h1>
-              <CustomButton onClick={() => history.push("/shop/women")}>
+              <h1>女士服飾系列</h1>
+              <p>完美貼合身形曲線，支撐性佳，並選用獨特抗菌吸汗材質</p>
+              <p>延展性極佳，適合各種鍛鍊。</p>
+              <CustomButton
+                onClick={() => history.push("/shop/women")}
+                style={{ width: "100px" }}
+              >
                 了解詳情
               </CustomButton>
             </div>
-            <div className="img" />
+            <div className="img-container">
+              <img src="https://i.ibb.co/1KMwdkj/shop-page-women.jpg" alt="" />
+            </div>
           </div>
           <div className="shop-collection-section">
-            <div className="img" />
+            <img src="https://i.ibb.co/59ZGjHR/shop-page-food.jpg" alt="" />
             <div className="content">
-              <h1>Food</h1>
-              <CustomButton onClick={() => history.push("/shop/food")}>
+              <h1>高蛋白食品系列</h1>
+              <p>我們提供豐富且多樣的各類補劑</p>
+              <p>滿足您所有的飲養需求</p>
+              <CustomButton
+                onClick={() => history.push("/shop/food")}
+                style={{ width: "100px" }}
+              >
                 了解詳情
               </CustomButton>
             </div>

@@ -26,7 +26,7 @@ const ShopItem = ({ addItemToCart, history, item }) => {
     nextArrow: <NextArrow />,
   };
   const collectionPram = useParams().collection;
-  const { itemId, name, img1, price } = item;
+  const { itemId, name, img1, price, flavor } = item;
   return (
     <div className="shop-item">
       <Slider {...settings}>
@@ -63,10 +63,11 @@ const ShopItem = ({ addItemToCart, history, item }) => {
       </Slider>
       <div className="shop-item-info">
         <p>{name}</p>
+        <span>({flavor})</span>
         <div className="shop-fav-container">
           <Favorite item={item} />
         </div>
-        <p>${price}</p>
+        <p className="shop-item-price">${price}</p>
         <CustomButton
           onClick={() => {
             // console.log(addItemToCart(item));

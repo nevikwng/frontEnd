@@ -5,8 +5,8 @@
         cursor: pointer;
         // width: 50px;
         border: none;
-        color: white;
-        background-color: black;
+        color: black;
+        background-color: #e3e3e3;
         span {
             margin-right: 2px;
             font-size: 16px;
@@ -21,15 +21,24 @@
         position: absolute;
         top: 30px;
         right: 0;
-        width: 100px;
-        height: 100px;
-        background-color: white;
+        width: 160px;
+        height: 70px;
+        background-color: #e3e3e3;
         border: 1px black solid;
         z-index: 3;
 
         ul {
             list-style: none;
             color: black;
+            li {
+                margin: 10px 0 10px 10px;
+                cursor: pointer;
+            }
+            .price-selected {
+                color: blueviolet;
+                font-weight: bold;
+            }
+
             .selected {
                 color: blueviolet;
                 font-weight: 600;

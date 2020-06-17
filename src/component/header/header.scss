@@ -1,90 +1,69 @@
 .header {
-    height: 6.5rem;
-    width: 100%;
-    position: fixed;
+  height: 6.5rem;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  margin: 0 auto;
+  background: black;
+  box-shadow: 0 1px 20px rgb(116, 115, 111);
+  position: relative;
+  justify-content: center;
+
+  a {
+    color: white;
+  }
+
+  .main {
+    // width: 80%;
+    height: 100%;
     display: flex;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    margin: 0 auto;
-    background: black;
-    box-shadow: 0 1px 20px rgb(116, 115, 111);
-    position: relative;
     justify-content: center;
 
-    a {
-        color: white;
-    }
-
-    .sub-div {
-        display: none;
-        position: absolute;
-        top: 6.5rem;
-        left: 0;
+    .logo-container {
+      height: 100%;
+      width: 4rem;
+      display: flex;
+      font-size: 3rem;
+      margin: 0 2rem;
+      // box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      .logo {
         width: 100%;
-        height: 300px;
-        background-color: white;
-        border: black 1px solid;
-
-        &.show-sub-div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            a {
-                color: black;
-            }
-        }
+      }
     }
-
-    .main {
-        // width: 80%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-
-        .logo-container {
-            height: 100%;
-            width: 4rem;
-            display: flex;
-            font-size: 3rem;
-            margin: 0 2rem;
-            // box-sizing: border-box;
-            align-items: center;
-            justify-content: center;
-            .logo {
-                width: 100%;
-            }
-        }
-        // .spacing {
-        //     flex: 1;
-        // }
-        .options {
-            // width: 30%;
-            height: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-
-            .option {
-                padding: 10px 15px;
-                cursor: pointer;
-            }
-        }
-    }
-
-    .sub {
-        width: 10%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        margin-left: auto;
-    }
-    // @media screen and (max-width: 768px) {
-    //     .logo-container,
-    //     .option {
-    //         display: none;
-    //     }
+    // .spacing {
+    //     flex: 1;
     // }
+    .options {
+      // width: 30%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      .option {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .sub {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+  }
+  // @media screen and (max-width: 768px) {
+  //     .logo-container,
+  //     .option {
+  //         display: none;
+  //     }
+  // }
 }

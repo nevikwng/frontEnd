@@ -11,13 +11,14 @@ import { shopFilterTagSelect } from "../../redux/shop/shop-selector";
 
 const FilterButton = ({ children, filterPrice, dispatch }) => {
   const [toggleDrop, setToggleDrop] = useState(false);
+  const [priceFilter, setPriceFilter] = useState("選擇排序");
   return (
     <span className="filter-button-container">
       <button
         className="filter-button"
         onClick={() => setToggleDrop(!toggleDrop)}
       >
-        <span>{children}</span>
+        <span>{priceFilter}</span>
         <Icon icon={ic_arrow_drop_down} size={16} />
       </button>
       {toggleDrop && (
@@ -26,8 +27,10 @@ const FilterButton = ({ children, filterPrice, dispatch }) => {
             {filterPrice &&
               filterPrice.map((list) => (
                 <li
+                  className={`${priceFilter === list ? "price-selected" : ""}`}
                   key={list}
                   onClick={() => {
+                    setPriceFilter(list);
                     setToggleDrop(!toggleDrop);
                     dispatch(shopFilterPrice(list));
                   }}

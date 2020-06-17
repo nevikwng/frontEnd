@@ -1,0 +1,35 @@
+.slide-in-top {
+  &-enter {
+    transform: translateY(-100%);
+    &-active {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 200ms;
+    }
+  }
+  &-exit {
+    transform: translateY(0);
+    &-active {
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 200ms;
+    }
+  }
+}
+.sub-div {
+  position: fixed;
+  top: 6.5rem;
+  left: 0;
+  width: 100vw;
+  height: 30vh;
+  background-color: white;
+  border: black 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  a {
+    margin: 10px 0;
+  }
+}

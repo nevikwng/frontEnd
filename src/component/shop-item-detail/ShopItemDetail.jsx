@@ -13,7 +13,7 @@ import "./ShopItemDetail.scss";
 const ShopItemDetail = ({ history, shopItem }) => {
   // console.log(shopItem);
   const collection = useParams().collection;
-  const { name, price, img1, img2, img3 } = shopItem;
+  const { name, price, flavor, img1, img2, img3 } = shopItem;
   //   const imgArr = Object.values(imgObj);
   const imgArr = [img1, img1 + " ", img1 + "  "];
   const [renderImg, setImg] = useState(imgArr);
@@ -46,20 +46,28 @@ const ShopItemDetail = ({ history, shopItem }) => {
           >
             {collection.toUpperCase()}
           </h3>
-          <Favorite item={shopItem} />
         </div>
-        <h1>{name}</h1>
-        <h2>$ {price}</h2>
 
-        <ShopCountButton cartItem={shopItem} />
+        <div>
+          <div className="title-fav-container">
+            <h1>{name}</h1>
+            <Favorite item={shopItem} />
+          </div>
+          <span className="shop-detail-flavor">{flavor}</span>
+          <h2>$ {price}</h2>
+          <ShopCountButton cartItem={shopItem} />
+        </div>
+
         <h4>
-          slkdhfihfiwofhiwh
+          Impact 乳清蛋白粉是純度最高的蛋白粉
           <br />
-          gdlkvhiohgiwhoifv
+          同時脂肪和碳水化合物含量很低
           <br />
-          hsifohvwrfhsldkhg
+          低於大多數其他乳清蛋白粉
           <br />
-          iowfhsldfhoiwefhoi
+          Impact 蛋白粉有助於肌肉的增長和維持
+          <br />
+          幫您實現最佳健身和瘦身效果
         </h4>
       </div>
     </>

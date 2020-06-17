@@ -10,16 +10,23 @@ import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
 import LikeIcon from "../like-icon/LikeIcon";
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
+import HeaderDropdown from "../header-dropdown/HeaderDropdown";
 
 // redux action-------------------------------
 
-const Header = ({ hidden }) => {
+const Header = () => {
   const [subDiv, setSubDiv] = useState(false);
   return (
     <div className="header">
       <div className="sub"></div>
       <div className="main">
-        <div className="options" onMouseOver={() => setSubDiv(true)}>
+        <div
+          className="options"
+          onMouseOver={() => {
+            if (subDiv) return;
+            setSubDiv(true);
+          }}
+        >
           <Link to="/" className="option">
             about
           </Link>
@@ -29,7 +36,13 @@ const Header = ({ hidden }) => {
           Logo
         </Link>
 
-        <div className="options" onMouseOver={() => setSubDiv(true)}>
+        <div
+          className="options"
+          onMouseOver={() => {
+            if (subDiv) return;
+            setSubDiv(true);
+          }}
+        >
           <Link
             to="/shopping"
             className="option"
@@ -43,21 +56,8 @@ const Header = ({ hidden }) => {
         <LikeIcon />
         <CartIcon />
       </div>
-      <div
-        className={`${subDiv ? "show-sub-div" : ""} sub-div`}
-        onMouseLeave={() => setSubDiv(false)}
-      >
-        <Link to="/shop/men" className="" onClick={() => setSubDiv(false)}>
-          Men
-        </Link>
-        <Link to="/shop/women" className="" onClick={() => setSubDiv(false)}>
-          Women
-        </Link>
-        <Link to="/shop/food" className="" onClick={() => setSubDiv(false)}>
-          Food
-        </Link>
-      </div>
-      {hidden ? null : <CartDropdown />}
+      <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
+      <CartDropdown />
     </div>
   );
 };
