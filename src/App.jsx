@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Pages----------
 import Header from "./component/header/Header";
@@ -13,37 +14,38 @@ import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
 const ShopCollectionPage = lazy(() =>
-  import("./pages/shop-overview-page/ShopCollectionPage")
+  import("./pages/shop-collection-page/ShopCollectionPage")
 );
 const ShopItemPage = lazy(() => import("./pages/shop-item-page/ShopItemPage"));
 
+const HomePage = () => <div>Hi</div>;
 // APP component
 const App = () => {
   return (
-    <>
+    <div>
       <Header />
       <div className="space" />
       <main>
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
-              <Route exact path="/" component={LoadingSpinner} />
-              <Route exact path="/shop" component={ShopPage} />
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/shopping" component={ShopPage} />
               <Route
                 exact
-                path="/shop/:collection"
+                path="/shop/:collection?/:itemType?"
                 component={ShopCollectionPage}
               />
               <Route
-                path="/shop/:collection/:itemId"
+                path="/shopitem/:collection/:itemId"
                 component={ShopItemPage}
               />
             </Suspense>
           </ErrorBoundary>
         </Switch>
       </main>
-    </>
+    </div>
   );
 };
 
-export default App;
+export default connect(null)(App);

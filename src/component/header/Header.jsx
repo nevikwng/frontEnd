@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -13,33 +13,54 @@ import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 
 // redux action-------------------------------
 
-const Header = ({ hidden }) => (
-  <div className="header">
-    <div className="sub"></div>
-    <div className="main">
-      <div className="options">
-        <Link to="/" className="option">
-          about
+const Header = ({ hidden }) => {
+  const [subDiv, setSubDiv] = useState(false);
+  return (
+    <div className="header">
+      <div className="sub"></div>
+      <div className="main">
+        <div className="options" onMouseOver={() => setSubDiv(true)}>
+          <Link to="/" className="option">
+            about
+          </Link>
+        </div>
+
+        <Link to="/" className="logo-container">
+          Logo
+        </Link>
+
+        <div className="options" onMouseOver={() => setSubDiv(true)}>
+          <Link
+            to="/shopping"
+            className="option"
+            onClick={() => setSubDiv(false)}
+          >
+            Shop
+          </Link>
+        </div>
+      </div>
+      <div className="sub">
+        <LikeIcon />
+        <CartIcon />
+      </div>
+      <div
+        className={`${subDiv ? "show-sub-div" : ""} sub-div`}
+        onMouseLeave={() => setSubDiv(false)}
+      >
+        <Link to="/shop/men" className="" onClick={() => setSubDiv(false)}>
+          Men
+        </Link>
+        <Link to="/shop/women" className="" onClick={() => setSubDiv(false)}>
+          Women
+        </Link>
+        <Link to="/shop/food" className="" onClick={() => setSubDiv(false)}>
+          Food
         </Link>
       </div>
-
-      <Link to="/" className="logo-container">
-        Logo
-      </Link>
-
-      <div className="options">
-        <Link to="/shop" className="option">
-          Shop
-        </Link>
-      </div>
+      {hidden ? null : <CartDropdown />}
     </div>
-    <div className="sub">
-      <LikeIcon />
-      <CartIcon />
-    </div>
-    {hidden ? null : <CartDropdown />}
-  </div>
-);
+  );
+};
 
 // redux mapState & mapDispatch
 const mapStateToProps = createStructuredSelector({

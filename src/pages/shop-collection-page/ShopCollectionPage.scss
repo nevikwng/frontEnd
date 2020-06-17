@@ -1,10 +1,16 @@
 .collection-page {
-  margin: 0 15%;
+  // margin: 0 au;
   border: white solid 1px;
   // height: 1000px;
 
+  .filter-bar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
   .collection-title {
-    margin: 10px 10px 30px;
+    margin-bottom: 2rem;
   }
 
   .collection-container {

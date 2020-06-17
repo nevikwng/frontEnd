@@ -18,7 +18,7 @@ const Favorite = ({
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
-    console.log("fire");
+    // console.log("fire");
     cartFavoriteItems && setIsFavorited(!!cartFavoriteItems[item.itemId]);
   }, []);
 
@@ -36,14 +36,14 @@ const Favorite = ({
     <>
       {isFavorited ? (
         <div
-          style={{ color: "pink", cursor: "pointer" }}
+          style={{ color: "rgb(216, 71, 173)", cursor: "pointer" }}
           onClick={unFavHandler}
         >
           <Icon icon={ic_favorite} size={24} />
         </div>
       ) : (
         <div
-          style={{ color: "pink", cursor: "pointer" }}
+          style={{ color: "rgb(216, 71, 173)", cursor: "pointer" }}
           onClick={toFavHandler}
         >
           <Icon icon={ic_favorite_border} size={24} />

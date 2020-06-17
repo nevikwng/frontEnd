@@ -2,15 +2,15 @@
   //   min-width: 165px;
   //   width: auto;
 
-  width: 80%;
-  height: 50px;
+  width: 60%;
+  height: 40px;
   letter-spacing: 0.5px;
   //   line-height: 45px;
   font-size: 16px;
-  background-color: black;
+  background-color: #e3e3e3;
   border: rgb(216, 71, 173) 3px solid;
-  border-radius: 10px;
-  color: white;
+  // border-radius: 10px;
+  color: rgb(216, 71, 173);
   text-transform: uppercase;
   font-family: "Open Sans Condensed";
   font-weight: bolder;
@@ -21,12 +21,12 @@
 
   &:hover {
     background-color: rgb(216, 71, 173);
-    color: white;
-    border: 1px solid black;
+    color: #e3e3e3;
+    // border: 1px solid black;
   }
-  &:active {
-    border: rgb(216, 71, 173) 3px solid;
-  }
+  // &:active {
+  //   border: rgb(216, 71, 173) 3px solid;
+  // }
 
   // &.google-sign-in {
   //   background-color: rgb(216, 71, 173);

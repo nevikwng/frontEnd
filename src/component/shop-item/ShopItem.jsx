@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { withRouter } from "react-router-dom";
+import { withRouter, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "slick-carousel/slick/slick.css";
@@ -15,7 +15,7 @@ import { addItemToCart } from "../../redux/cart/cart-action";
 import Favorite from "../favorite-icon/Favorite";
 
 // Component----------------------
-const ShopItem = ({ addItemToCart, history, match, item }) => {
+const ShopItem = ({ addItemToCart, history, item }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -25,8 +25,8 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
-
-  const { itemId, name, img1 } = item;
+  const collectionPram = useParams().collection;
+  const { itemId, name, img1, price } = item;
   return (
     <div className="shop-item">
       <Slider {...settings}>
@@ -36,7 +36,7 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
             src={img1}
             alt=""
             onClick={() => {
-              history.push(`${match.url}/${itemId}`);
+              history.push(`/shopitem/${collectionPram}/${itemId}`);
             }}
           />
         </div>
@@ -46,7 +46,7 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
             src={img1}
             alt=""
             onClick={() => {
-              history.push(`${match.url}/${itemId}`);
+              history.push(`/shopitem/${collectionPram}/${itemId}`);
             }}
           />
         </div>
@@ -56,16 +56,17 @@ const ShopItem = ({ addItemToCart, history, match, item }) => {
             src={img1}
             alt=""
             onClick={() => {
-              history.push(`${match.url}/${itemId}`);
+              history.push(`/shopitem/${collectionPram}/${itemId}`);
             }}
           />
         </div>
       </Slider>
       <div className="shop-item-info">
-        <div className="shop-name-fav-container">
-          <p>{name}</p>
+        <p>{name}</p>
+        <div className="shop-fav-container">
           <Favorite item={item} />
         </div>
+        <p>${price}</p>
         <CustomButton
           onClick={() => {
             // console.log(addItemToCart(item));

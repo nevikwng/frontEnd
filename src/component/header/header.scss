@@ -9,9 +9,36 @@
     margin: 0 auto;
     background: black;
     box-shadow: 0 1px 20px rgb(116, 115, 111);
+    position: relative;
+    justify-content: center;
+
+    a {
+        color: white;
+    }
+
+    .sub-div {
+        display: none;
+        position: absolute;
+        top: 6.5rem;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        background-color: white;
+        border: black 1px solid;
+
+        &.show-sub-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            a {
+                color: black;
+            }
+        }
+    }
 
     .main {
-        width: 80%;
+        // width: 80%;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -52,6 +79,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        margin-left: auto;
     }
     // @media screen and (max-width: 768px) {
     //     .logo-container,
