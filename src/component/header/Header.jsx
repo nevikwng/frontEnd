@@ -10,7 +10,7 @@ import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
 import LikeIcon from "../like-icon/LikeIcon";
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
-
+import CartList from "../Order-CartList/CartList";
 // redux action-------------------------------
 
 const Header = ({ hidden }) => {
@@ -20,9 +20,10 @@ const Header = ({ hidden }) => {
       <div className="sub"></div>
       <div className="main">
         <div className="options" onMouseOver={() => setSubDiv(true)}>
-          <Link to="/" className="option">
-            about
+          <Link to="/CartList" className="option">
+            CartList
           </Link>
+        
         </div>
 
         <Link to="/" className="logo-container">

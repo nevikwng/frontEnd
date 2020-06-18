@@ -10,6 +10,9 @@ import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 
 import "./App.scss";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
+import CartList from "./component/Order-CartList/CartList";
+import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
+import OrderList from './component/OrderList/OrderList.js'
 
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
@@ -30,7 +33,9 @@ const App = () => {
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
               <Route exact path="/" component={HomePage} />
+
               <Route exact path="/shopping" component={ShopPage} />
+
               <Route
                 exact
                 path="/shop/:collection?/:itemType?"
@@ -40,6 +45,10 @@ const App = () => {
                 path="/shopitem/:collection/:itemId"
                 component={ShopItemPage}
               />
+              <Route path="/CartList" component={CartList} />
+              <Route path="/OrderList" component={OrderList} />
+
+              <Route path="/CheckOutPage" component={CheckOutPage} />
             </Suspense>
           </ErrorBoundary>
         </Switch>
