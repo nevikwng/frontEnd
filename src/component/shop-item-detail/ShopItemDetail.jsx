@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { withRouter, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import Slider from "react-slick";
 
 import { shopItemDetailSelect } from "../../redux/shop/shop-selector";
 
 import ShopCountButton from "../shop-count-button/ShopCountButton";
 import Favorite from "../favorite-icon/Favorite";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./ShopItemDetail.scss";
 
 const ShopItemDetail = ({ history, shopItem }) => {
@@ -21,8 +24,18 @@ const ShopItemDetail = ({ history, shopItem }) => {
     setImg(clickImg);
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
   return (
     <>
+      {/* RWD of screen < 576px will hidden */}
       <div className="shop-item-imgs-container">
         <div className="shop-item-img-group-container">
           {imgArr.map((img) => (
@@ -37,6 +50,7 @@ const ShopItemDetail = ({ history, shopItem }) => {
         </div>
         <img className="shop-item-img" src={renderImg} alt="" />
       </div>
+      {/* ------------------------- */}
 
       <div className="shop-item-info-container">
         <div className="collection-fav-container">
@@ -47,6 +61,22 @@ const ShopItemDetail = ({ history, shopItem }) => {
             {collection.toUpperCase()}
           </h3>
         </div>
+
+        {/* RWD of screen < 576px will show */}
+        <div className="shop-item-detail-slider">
+          <Slider {...settings}>
+            <div className="shop-item-detail-slider-img-container">
+              <img className="shop-item-detail-slider-img" src={img1} alt="" />
+            </div>
+            <div className="shop-item-detail-slider-img-container">
+              <img className="shop-item-detail-slider-img" src={img1} alt="" />
+            </div>
+            <div className="shop-item-detail-slider-img-container">
+              <img className="shop-item-detail-slider-img" src={img1} alt="" />
+            </div>
+          </Slider>
+        </div>
+        {/* ------------------------- */}
 
         <div>
           <div className="title-fav-container">

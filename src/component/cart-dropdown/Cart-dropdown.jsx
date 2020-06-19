@@ -39,8 +39,8 @@ const CartDropdown = ({
           <CartIcon />
         </div>
 
+        <h3>購物車 :</h3>
         <div className="cart-items-dropdown-container">
-          <h3>購物車 :</h3>
           {cartItems.length ? (
             <>
               {cartItems.map((cartItem) => (
@@ -54,8 +54,8 @@ const CartDropdown = ({
 
         <div className="under-line" />
 
+        <h3>追蹤商品 :</h3>
         <div className="cart-items-dropdown-container">
-          <h3>追蹤商品 :</h3>
           {Object.values(cartFavoriteItems).length ? (
             <>
               {Object.values(cartFavoriteItems).map((cartItem) => (

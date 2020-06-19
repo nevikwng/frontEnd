@@ -18,9 +18,9 @@ const Favorite = ({
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
-    // console.log("fire");
+    console.log("fire");
     cartFavoriteItems && setIsFavorited(!!cartFavoriteItems[item.itemId]);
-  }, []);
+  }, [cartFavoriteItems, item.itemId]);
 
   const toFavHandler = () => {
     likeCartItem(item);

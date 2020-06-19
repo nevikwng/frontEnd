@@ -52,7 +52,8 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="sub">
+
+      <div className="sub" onMouseOver={() => setSubDiv(false)}>
         <LikeIcon />
         <CartIcon />
       </div>

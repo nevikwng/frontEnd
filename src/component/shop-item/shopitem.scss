@@ -34,3 +34,23 @@
     }
   }
 }
+
+@media screen and (max-width: 1440px) {
+  .shop-item {
+    width: 275px;
+    // height: 350px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .shop-item {
+    width: 260px;
+    // height: 350px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shop-item {
+    width: 295px;
+  }
+}

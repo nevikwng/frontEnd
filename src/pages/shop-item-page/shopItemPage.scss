@@ -10,4 +10,14 @@
     // display: flex;
     // }
   }
+  @media screen and (max-width: 1024px) {
+    .shop-item-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .shop-item-container {
+      display: block;
+    }
+  }
 }

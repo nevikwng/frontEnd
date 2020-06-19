@@ -53,6 +53,22 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
     slidesToScroll: 4,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
+    responsive: [
+      {
+        breakpoint: 768, //max-width
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 576, //max-width
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -102,7 +118,7 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
             </div>
           </div>
           {/* Women */}
-          <div className="shop-collection-section">
+          <div className="shop-collection-section media-style">
             <div className="content">
               <h1>女士服飾系列</h1>
               <p>完美貼合身形曲線，支撐性佳，並選用獨特抗菌吸汗材質</p>
@@ -119,7 +135,9 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
             </div>
           </div>
           <div className="shop-collection-section">
-            <img src="https://i.ibb.co/59ZGjHR/shop-page-food.jpg" alt="" />
+            <div className="img-container">
+              <img src="https://i.ibb.co/59ZGjHR/shop-page-food.jpg" alt="" />
+            </div>
             <div className="content">
               <h1>高蛋白食品系列</h1>
               <p>我們提供豐富且多樣的各類補劑</p>

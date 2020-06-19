@@ -6,7 +6,7 @@ body {
 }
 
 main {
-    width: 1260px;
+    width: 80vw;
     margin: 0 auto;
     // border: black solid 1px;
 }
@@ -23,14 +23,22 @@ a {
 }
 
 .space {
-    height: 6.6rem;
+    height: 9rem;
+}
+@media screen and (max-width: 576px) {
+    main {
+        width: 95vw;
+    }
+    .space {
+        height: 7rem;
+    }
 }
 
 .next-arrow,
 .prev-arrow {
     z-index: 4;
     position: absolute;
-    top: 45%;
+    top: 40%;
     background: transparent;
     outline: transparent;
     border: transparent;
