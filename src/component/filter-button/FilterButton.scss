@@ -27,12 +27,38 @@
         border: 1px black solid;
         z-index: 3;
 
+        &.filter-dropdown-custom {
+            height: 100px;
+
+            .cancel-filter-li {
+                // width: 50%;
+                display: flex;
+                margin: 0 10px;
+                justify-content: center;
+                cursor: default;
+                span {
+                    cursor: pointer;
+                    font-size: 12px;
+                    padding-bottom: 3px;
+                    border-bottom: 1px solid transparent;
+                    transition: all 0.5s;
+                    &:hover {
+                        border-bottom: 1px solid blueviolet;
+                    }
+                }
+            }
+        }
+
         ul {
             list-style: none;
             color: black;
-            li {
+            .filter-list {
                 margin: 10px 0 10px 10px;
                 cursor: pointer;
+                &:hover {
+                    color: blueviolet;
+                    font-weight: bolder;
+                }
             }
             .price-selected {
                 color: blueviolet;

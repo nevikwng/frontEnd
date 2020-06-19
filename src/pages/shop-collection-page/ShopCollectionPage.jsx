@@ -36,7 +36,7 @@ const ShopCollectionPage = ({
         <>
           <h1 className="collection-title">{collection}</h1>
           <div className="filter-bar-container">
-            {shopUrl[collection] &&
+            {/* {shopUrl[collection] &&
               shopUrl[collection].map((type) => (
                 <Link
                   key={type}
@@ -45,11 +45,15 @@ const ShopCollectionPage = ({
                 >
                   {type}
                 </Link>
-              ))}
+              ))} */}
+            <FilterBar
+              filterCollection={shopUrl[collection]}
+              title={"篩選條件"}
+              collection={collection}
+            />
             <FilterBar
               filterPrice={["由低至高", "由高至低"]}
               title={"價格排序"}
-              filterTitle={"Price"}
             />
           </div>
           <div className="collection-container">
