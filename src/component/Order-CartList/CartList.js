@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CartList.scss'
 import { FaRegListAlt } from 'react-icons/fa';
 import { connect } from "react-redux";
@@ -10,6 +10,9 @@ import FavoriteItem from './FavoriteItems/FavoriteItems.jsx'
 import CartItems from './CartItems/CartItems.jsx'
 
 const CartList = ({ cartItems, cartFavoriteItems }) => {
+    // console.log(cartItems)
+
+
     return (
         <>
             <div className="title">
@@ -56,7 +59,7 @@ const CartList = ({ cartItems, cartFavoriteItems }) => {
                             <FavoriteItem cartFavoriteItems={cartFavoriteItems} />
                         </div>
                     </div>
-                    <CartListButton />
+                    <CartListButton cartItems={cartItems} />
                 </div>
             </div>
             <footer className="footer"></footer>

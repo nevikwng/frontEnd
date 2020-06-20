@@ -3,6 +3,7 @@ import {
   addShopItemToCart,
   removeCartItem,
   unlikeCartItem,
+  RedeuceCartItem,
 } from "./cart-utils";
 
 const INITIAL_STATE = {
@@ -50,6 +51,15 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           action.quantity
         ),
       };
+
+    case cartActionTypes.REDUCE_ITEM:
+      return {
+        ...state,
+        cartItems: RedeuceCartItem(state.cartItems, action.payload),
+      };
+
+  
+
     default:
       return state;
   }

@@ -20,6 +20,31 @@ export const unlikeCartItem = (cartFavoriteItems, item) => {
   delete cartFavoriteItems[item.itemId];
   return { ...cartFavoriteItems };
 };
+
+export const RedeuceCartItem = (cartItems, cartItemsToReduce) => {
+
+  const existCartItem = cartItems.find(
+    (cartItem) => cartItem.itemId === cartItemsToReduce.itemId
+  );
+
+  if (existCartItem === 1) {
+    return cartItems.filter((cart => cart.itemId !== cartItemsToReduce.itemId))
+  }
+
+  return cartItems.map(
+    cartItem => cartItem.itemId === cartItemsToReduce.itemId ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+
+  )
+
+};
+
+
+
+
+
+
+
+
 // Object.values(cartFavoriteItems).filter(
 //   (cartItem) => cartItem.itemId !== item.itemId
 // );

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { cartItemsSelect, favoriteItemsSelect } from '../../../redux/cart/cart-selector';
+import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
 
 import './CartListButton.scss'
-const CartListButton = ({ cartItems, history }) => {
+const CartListButton = ({ cartItems, history, SelectTotal }) => {
 
-    console.log(history.location.state)
-    console.log(cartItems)
+    // console.log(history.location.state)
+    console.log(SelectTotal)
 
     const [cubon, setcubon] = useState(0)
-    const [Total, setTotal] = useState(0)
     const [payType, setpayType] = useState(0)
 
 
@@ -29,22 +28,16 @@ const CartListButton = ({ cartItems, history }) => {
     }
 
 
-    useEffect(() => {
-        setTotal(cartItems.reduce((acc, cart) => (acc.quantity * acc.price + cart.quantity * cart.price)))
-    }, [])
 
 
 
 
     return (
-
-
         <div className="content-right">
-
-            <div>總計：</div>
-            <h3>${Total}</h3>
+            <div>購物車總額：</div>
+            <h3>${SelectTotal}</h3>
             <div>折扣：{cubon}</div>
-            <div>總計：{Total - cubon}</div>
+            <h4>總計：{SelectTotal - cubon}</h4>
             <div>
                 <select id="select-pay-type" name="PayType" value={payType} required="required" className="select-type" onChange={(e) => setpayType(e.target.value)}>
                     <option value="0">請選擇付款方式</option>
@@ -65,10 +58,10 @@ const CartListButton = ({ cartItems, history }) => {
 
     )
 }
-
 const mapStateToProps = createStructuredSelector({
-    cartItems: cartItemsSelect,
-    cartFavoriteItems: favoriteItemsSelect,
+    SelectTotal: SelectTotal
+
 });
+
 
 export default withRouter(connect(mapStateToProps)(CartListButton))

@@ -26,3 +26,8 @@ export const likeCountSelect = createSelector(
   (cartFavoriteItems) =>
     cartFavoriteItems ? Object.keys(cartFavoriteItems).length : 0
 );
+
+
+export const SelectTotal = createSelector([cartItemsSelect], (cartItems) =>
+  cartItems.reduce((accumulatorQ, curQ) => accumulatorQ + curQ.quantity * curQ.price, 0)
+);
