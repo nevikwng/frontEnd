@@ -27,6 +27,9 @@ const CartCheckOutButton = ({ cartItems, history, addToSever, additemToSever }) 
     useEffect(() => {
         setcubon(history.location.state.cubon)
     }, [cubon])
+    useEffect(() => {
+        setpayType(history.location.state.pay)
+    }, [payType])
     return (
         <div className="content-right">
             <div>總計：</div>

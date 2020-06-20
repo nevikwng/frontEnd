@@ -9,10 +9,11 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { cartItemsSelect, favoriteItemsSelect } from '../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
+
 async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
-    console.log(item);
-    axios.post(`http://localhost:5000/api/addCheckOutPage`, {
+    // console.log(item);
+    axios.post(`http://localhost:5000/Orders/api/addCheckOutPage`, {
         method: "POST",
         credentials: "include", // 需傳送 Cookie 必須開啟
         headers: new Headers({
@@ -32,22 +33,38 @@ async function addToSever(item) {
             recipientMobile: item.recipientMobile,
             recipientAddress: item.recipientAddress,
             recipientEmail: item.recipientEmail,
+            Member: item.Member
+
         },
     });
 
 
 }
-async function additemToSever(cartItems, Total) {
+async function additemToSever(cartItems, Total, Member) {
     // 注意資料格式要設定，伺服器才知道是json格式
-    console.log(cartItems);
-    axios.post(`http://localhost:5000/api/additem`, {
+    // console.log(cartItems);
+    axios.post(`http://localhost:5000/Orders/api/additem`, {
         method: "POST",
         credentials: "include", // 需傳送 Cookie 必須開啟
         headers: new Headers({
             Accept: "application/json",
             "Content-Type": "application/json",
         }),
-        cartItems: cartItems, Total
+        cartItems: cartItems, Total, Member
+    });
+}
+
+async function addordersToSever(item) {
+    // 注意資料格式要設定，伺服器才知道是json格式
+    // console.log(cartItems);
+    axios.post(`http://localhost:5000/Orders/api/orders`, {
+        method: "POST",
+        credentials: "include", // 需傳送 Cookie 必須開啟
+        headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        }),
+        orders: item
     });
 }
 
@@ -56,11 +73,11 @@ async function additemToSever(cartItems, Total) {
 
 
 
-const CheckOutPage = ({ cartItems }) => {
-    console.log(cartItems)
+
+const CheckOutPage = ({ cartItems, history }) => {
+    // console.log(history.location.state.pay)
 
     // console.log(props.location.state)
-    const history = useHistory();
     const [Name, setName] = useState();
     const [Select, setSelect] = useState("臺北市");
     const [District, setDistrict] = useState();
@@ -75,11 +92,18 @@ const CheckOutPage = ({ cartItems }) => {
     const [recipientEmail, setrecipientEmail] = useState(null);
     const [checkbox, setcheckbox] = useState(false);
     const [Total, setTotal] = useState(0)
-    console.log(Total)
+    const [Member, setMember] = useState(10)
+    const [pay, setpay] = useState('現金')
 
+    // console.log(Total)
     useEffect(() => {
         setTotal(cartItems.reduce((acc, cart) => (acc.quantity * acc.price + cart.quantity * cart.price)))
     }, [])
+    useEffect(() => {
+        setpay(history.location.state.pay)
+        console.log(pay)
+    }, [pay])
+
 
     return (
         <>
@@ -104,6 +128,7 @@ const CheckOutPage = ({ cartItems }) => {
                     className="content"
                     onSubmit={() => {
                         addToSever({
+                            Member,
                             Name,
                             Select,
                             District,
@@ -116,13 +141,14 @@ const CheckOutPage = ({ cartItems }) => {
                             recipientMobile,
                             recipientAddress,
                             recipientEmail,
-                        }, additemToSever(cartItems, Total))
+                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })))
                     }}
                 >
                     <div className="content-wrap-Checkoutpage">
                         <h3>CHECKOUT</h3>
                         <span className="content-list-title">Billing details</span>
                         <ul className="content-list-detail">
+                            <span> 會員編號：{Member}</span>
                             <input
                                 className="content-list-detail-input"
                                 onChange={(event) => setName(event.target.value)}

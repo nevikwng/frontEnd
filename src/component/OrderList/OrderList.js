@@ -20,10 +20,10 @@ const OrderList = () => {
             <div className="container">
                 <div className="article">
                     <ul className="menu">
-                        <Link to="/OrderList"> <li>全部訂單</li></Link>
-                        <Link to="/"><li>出貨中</li></Link>
-                        <Link to="/"><li>完成</li></Link>
-                        <Link to="/"><li>取消</li></Link>
+                            <Link to="/OrderList"><li>全部訂單</li></Link>
+                            <Link to="/OrderList/shipping"><li>出貨中</li></Link>
+                            <Link to="/OrderList/compeleted"><li>完成</li></Link>
+                            <Link to="/OrderList/Cancel"><li>取消</li></Link>
                     </ul>
                     <OrderListDetail />
                 </div>
