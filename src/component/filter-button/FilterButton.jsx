@@ -3,29 +3,39 @@ import { connect } from "react-redux";
 import { Icon } from "react-icons-kit";
 import { ic_arrow_drop_down } from "react-icons-kit/md/ic_arrow_drop_down";
 
-import { shopFilterPrice, shopFetchStart } from "../../redux/shop/shop-action";
+import {
+  shopFilterPrice,
+  shopFetchStart,
+  shopShowFilterTag,
+} from "../../redux/shop/shop-action";
 
 import "./FilterButton.scss";
 import { createStructuredSelector } from "reselect";
-import { shopFilterTagSelect } from "../../redux/shop/shop-selector";
-import CustomButton from "../custom-button/Custom-button";
+import {
+  shopFilterTagSelect,
+  shopFilterPriceTagSelect,
+} from "../../redux/shop/shop-selector";
+// import CustomButton from "../custom-button/Custom-button";
 
 const FilterButton = ({
   filterPrice,
   filterCollection,
-  dispatch,
   shopFetchStart,
   collection,
+  shopFilterPrice,
+  shopShowFilterTag,
+  filterTag,
+  filterPriceTag,
 }) => {
   const [toggleDrop, setToggleDrop] = useState(false);
-  const [filter, setFilter] = useState("選擇篩選");
+  // const [filter, setFilter] = useState("選擇篩選");
   return (
     <span className="filter-button-container">
       <button
         className="filter-button"
         onClick={() => setToggleDrop(!toggleDrop)}
       >
-        <span>{filter}</span>
+        <span>{filterCollection ? filterTag : filterPriceTag}</span>
         <Icon icon={ic_arrow_drop_down} size={16} />
       </button>
       {toggleDrop && (
@@ -39,13 +49,12 @@ const FilterButton = ({
               filterPrice.map((list) => (
                 <li
                   className={`${
-                    filter === list ? "price-selected" : ""
+                    filterPriceTag === list ? "price-selected" : ""
                   } filter-list`}
                   key={list}
                   onClick={() => {
-                    setFilter(list);
                     setToggleDrop(!toggleDrop);
-                    dispatch(shopFilterPrice(list));
+                    shopFilterPrice(list);
                   }}
                 >
                   {list}
@@ -56,11 +65,11 @@ const FilterButton = ({
               filterCollection.map((list) => (
                 <li
                   className={`${
-                    filter === list ? "price-selected" : ""
+                    filterTag === list ? "price-selected" : ""
                   } filter-list`}
                   key={list}
                   onClick={() => {
-                    setFilter(list);
+                    shopShowFilterTag(list);
                     setToggleDrop(!toggleDrop);
                     shopFetchStart(undefined, list);
                   }}
@@ -70,7 +79,12 @@ const FilterButton = ({
               ))}
             {filterCollection && (
               <li className="cancel-filter-li">
-                <span onClick={() => shopFetchStart(collection, undefined)}>
+                <span
+                  onClick={() => {
+                    shopShowFilterTag("選擇篩選");
+                    shopFetchStart(collection, undefined);
+                  }}
+                >
                   取消篩選
                 </span>
               </li>
@@ -84,10 +98,13 @@ const FilterButton = ({
 
 const mapStateToProps = createStructuredSelector({
   filterTag: shopFilterTagSelect,
+  filterPriceTag: shopFilterPriceTagSelect,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   shopFetchStart: (url, typeUrl) => dispatch(shopFetchStart(url, typeUrl)),
+  shopFilterPrice: (priceFilter) => dispatch(shopFilterPrice(priceFilter)),
+  shopShowFilterTag: (tag) => dispatch(shopShowFilterTag(tag)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterButton);

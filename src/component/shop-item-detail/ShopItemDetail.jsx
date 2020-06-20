@@ -18,8 +18,8 @@ const ShopItemDetail = ({ history, shopItem }) => {
   const collection = useParams().collection;
   const { name, price, flavor, img1, img2, img3 } = shopItem;
   //   const imgArr = Object.values(imgObj);
-  const imgArr = [img1, img1 + " ", img1 + "  "];
-  const [renderImg, setImg] = useState(imgArr);
+  const imgArr = [img1, img2, img3];
+  const [renderImg, setImg] = useState(img1);
   const changeImg = (clickImg) => {
     setImg(clickImg);
   };
@@ -69,10 +69,10 @@ const ShopItemDetail = ({ history, shopItem }) => {
               <img className="shop-item-detail-slider-img" src={img1} alt="" />
             </div>
             <div className="shop-item-detail-slider-img-container">
-              <img className="shop-item-detail-slider-img" src={img1} alt="" />
+              <img className="shop-item-detail-slider-img" src={img2} alt="" />
             </div>
             <div className="shop-item-detail-slider-img-container">
-              <img className="shop-item-detail-slider-img" src={img1} alt="" />
+              <img className="shop-item-detail-slider-img" src={img3} alt="" />
             </div>
           </Slider>
         </div>

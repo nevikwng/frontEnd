@@ -1,7 +1,6 @@
 .collection-page {
-  // margin: 0 au;
-  border: white solid 1px;
-  // height: 1000px;
+  // border: white solid 1px;
+  // background-color: #ecedef;
 
   .filter-bar-container {
     display: flex;
@@ -22,15 +21,15 @@
     // grid-gap: 10px;
     justify-items: center;
   }
-  @media screen and (max-width: 768px) {
-    .collection-container {
-      grid-template-columns: 1fr 1fr;
-      // column-gap: 10px;
-    }
-  }
   @media screen and (max-width: 1024px) {
     .collection-container {
       grid-template-columns: 1fr 1fr 1fr;
+      // column-gap: 10px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .collection-container {
+      grid-template-columns: 1fr 1fr;
       // column-gap: 10px;
     }
   }

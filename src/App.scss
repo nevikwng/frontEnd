@@ -1,12 +1,12 @@
 body {
     font-family: "Open Sans Condensed", sans-serif;
     overflow-x: hidden;
-    background: #e3e3e3;
+    // background: #e3e3e3;
     // color: black;
 }
 
 main {
-    width: 80vw;
+    width: 1260px;
     margin: 0 auto;
     // border: black solid 1px;
 }
@@ -25,6 +25,12 @@ a {
 .space {
     height: 9rem;
 }
+@media screen and (max-width: 1260px) {
+    main {
+        width: 80vw;
+    }
+}
+
 @media screen and (max-width: 576px) {
     main {
         width: 95vw;

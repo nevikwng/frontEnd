@@ -26,7 +26,7 @@ const ShopItem = ({ addItemToCart, history, item }) => {
     nextArrow: <NextArrow />,
   };
   const collectionPram = useParams().collection;
-  const { itemId, name, img1, price, flavor } = item;
+  const { itemId, name, img1, img2, img3, price, flavor } = item;
   return (
     <div className="shop-item">
       <Slider {...settings}>
@@ -43,7 +43,7 @@ const ShopItem = ({ addItemToCart, history, item }) => {
         <div>
           <img
             className="shop-item-slider-img"
-            src={img1}
+            src={img2}
             alt=""
             onClick={() => {
               history.push(`/shopitem/${collectionPram}/${itemId}`);
@@ -53,7 +53,7 @@ const ShopItem = ({ addItemToCart, history, item }) => {
         <div>
           <img
             className="shop-item-slider-img"
-            src={img1}
+            src={img3}
             alt=""
             onClick={() => {
               history.push(`/shopitem/${collectionPram}/${itemId}`);

@@ -27,7 +27,6 @@ export function* ShopFetchAsyncSaga({ payload, typeUrl }) {
       } = yield axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/api/shop/shopitem/${typeUrl}`
       );
-      console.log(collection);
       data = collection;
     }
     yield put(shopFetchSuccess(data));

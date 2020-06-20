@@ -22,7 +22,11 @@ import ShopPageItem from "../../component/shop-page-item/ShopPageItem";
 const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
   const history = useHistory();
   useEffect(() => {
+    document.body.style = "background: #ecedef;";
     shopPageStart();
+
+    // ComponentWillUnMount
+    return () => (document.body.style = "background: white;");
   }, [shopPageStart]);
   //Hrader slider setting
   const settings = {
@@ -79,18 +83,22 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
         <div className="shop-slider-container">
           <Slider {...settings}>
             <Link className="img-info" to="/shop/men">
-              <h3>Men</h3>
+              <h3>男士服飾系列</h3>
+              <img src="https://i.ibb.co/gSqbYg5/head-men.jpg" alt="" />
             </Link>
             <Link className="img-info" to="/shop/women">
-              <h3>Women</h3>
+              <h3>女士服飾系列</h3>
+              <img src="https://i.ibb.co/YZ2DvqF/head-women.jpg" alt="" />
             </Link>
             <Link className="img-info" to="/shop/food">
-              <h3>Food</h3>
+              <h3>高蛋白食品系列</h3>
+              <img src="https://i.ibb.co/Lg3Pp0V/head-food.jpg" alt="" />
             </Link>
           </Slider>
           <div className="shop-page-newitem-title-container">
             <div />
             <p>最新商品</p>
+            <div />
           </div>
           <Slider {...shopItemSettings}>
             {shopPageCollections.map((collection) => (
