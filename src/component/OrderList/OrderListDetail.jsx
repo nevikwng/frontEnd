@@ -4,9 +4,9 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Map from './Shipping'
 import { withRouter } from 'react-router-dom';
-import Compeleted from './compeleted'
+import Compeleted from './Compeleted'
 import OrderCancel from './Cancel'
-
+import All from './All'
 
 async function DelToSever(orderId) {
     // 注意資料格式要設定，伺服器才知道是json格式
@@ -21,8 +21,6 @@ async function DelToSever(orderId) {
     })
     window.location.reload()
 }
-
-
 
 
 
@@ -66,91 +64,35 @@ const OrderListDetail = (props) => {
     }, [hiddenID]);
     return (
         <>
-            <input type="search" className="search" onChange={(event) => setSearch(event.target.value)} placeholder="您可以透過訂單編號及付款方式搜尋"></input>
+            <input type="search" className="search" onChange={(event) => setSearch(event.target.value)} placeholder="您可以透過訂單編號 商品金額及付款方式搜尋"></input>
             <div className="wrap">
                 <ul className="wrap-ul">
                     <li>訂單編號</li>
                     <li>訂購時間</li>
-                    <li>應付金額</li>
+                    <li>總額</li>
                     <li>付款方式</li>
                     <li>訂單狀態</li>
                     <li>訂單詳情</li>
                     <li>取消</li>
                 </ul>
-
-                {Shipping ? <Map data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
-                    : compeleted ? <Compeleted data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
-                        : Cancel ? <OrderCancel data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
-                            : search ? data.rows.filter(item => (item.orderId).toString().includes(search) || item.PayMentMethod.match(search)).map((item, index) => (
-                                <ul key={index} className="wrap-ul">
-                                    <li>{item.orderId}</li>
-                                    <li>{item.created_at}</li>
-                                    <li>$ {item.Total}</li>
-                                    <li>{item.PayMentMethod}</li>
-                                    {item.OrderStatus == 1 ? <li>交易進行中</li> : item.OrderStatus == 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
-                                    <li className="productdetail">
-                                        <button className="button-two" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
-                                    </li>{item.OrderStatus == 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus == 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽客服中心</li>}
-                                </ul>
-                            )) : data.rows.map((item, index) => (
-                                <>
-                                    <ul key={index} className="wrap-ul">
-                                        <li><a href="">{item.orderId}</a></li>
-                                        <li>{item.created_at}</li>
-                                        <li>$ {item.Total}</li>
-                                        <li>{item.PayMentMethod}</li>
-                                        {item.OrderStatus == 1 ? <li>交易進行中</li> : item.OrderStatus == 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
-                                        <li className="productdetail">
-                                            <button className="button-two" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
-                                        </li>
-                                        {item.OrderStatus == 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus == 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽<span className="service" onClick={() => props.history.push('/customerservice')}>客服中心</span></li>}
-                                    </ul>
-                                    {hidden && Value == item.orderId ? (
-                                        <div className="wrap-ul-hidden-container">
-                                            <ul className="wrap-ul-hidden-title">
-                                                <li>姓名</li>
-                                                <li>運送地址</li>
-                                                <li>手機</li>
-                                                <li>Email</li>
-                                                <li>商品名稱</li>
-                                                <li>商品價格</li>
-                                                <li>商品數量</li>
-                                                <li>商品種類</li>
-
-                                            </ul>
-                                            {hiddenID ? hiddenID.map((item, index) =>
-                                                (<ul key={index} className="wrap-ul-hidden">
-                                                    <li>{item.UserName}</li>
-                                                    <li>{item.City + item.district + item.address}</li>
-                                                    <li>{item.mobile}</li>
-                                                    <li>{item.email}</li>
-                                                    <li>{item.ItemName}</li>
-                                                    <li>{item.ItemNamePrice}</li>
-                                                    <li>{item.itemQuantity}</li>
-                                                    <li>{item.itemType}</li>
-                                                </ul>)) : 'loading'}
-
-                                        </div>
-                                    ) : ''}
-                                </>
-                            ))
+                {
+                    search ? data.rows.filter(item => (item.orderId).toString().includes(search) || item.PayMentMethod.match(search) || (item.Total).toString().includes(search)).map((item, index) => (
+                        <ul key={index} className="wrap-ul">
+                            <li>{item.orderId}</li>
+                            <li>{item.created_at}</li>
+                            <li>$ {item.Total}</li>
+                            <li>{item.PayMentMethod}</li>
+                            {item.OrderStatus == 1 ? <li>交易進行中</li> : item.OrderStatus == 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
+                            <li className="productdetail">
+                                <button className="button-two" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
+                            </li>{item.OrderStatus == 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus == 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽客服中心</li>}
+                        </ul>
+                    )) :
+                        Shipping ? <Map data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
+                            : compeleted ? <Compeleted data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
+                                : Cancel ? <OrderCancel data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
+                                    : <All data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
             <div className="notice-list">
                 <ul className="notice-list-ul">
