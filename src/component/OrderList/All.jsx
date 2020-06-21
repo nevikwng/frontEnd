@@ -21,6 +21,7 @@ const All = ({ data, search, hiddenID, ListToSever, history, DelToSever, address
                 </ul>
                 {hidden && Value == item.orderId ? (
                     <div className="wrap-ul-hidden-container">
+                        <span className="info">商品詳細資訊</span>
                         <ul className="wrap-ul-hidden-title">
                             <li>商品名稱</li>
                             <li>商品價格</li>
@@ -34,6 +35,7 @@ const All = ({ data, search, hiddenID, ListToSever, history, DelToSever, address
                                 <li>{item.itemQuantity}</li>
                                 <li>{item.itemType}</li>
                             </ul>)) : 'loading'}
+                        <span className="info">物流詳細資訊</span>
                         <ul className="wrap-ul-hidden-title">
                             <li>姓名</li>
                             <li>地址</li>
@@ -41,12 +43,13 @@ const All = ({ data, search, hiddenID, ListToSever, history, DelToSever, address
                             <li>信箱</li>
                         </ul>
                         {address ? address.map((item, index) =>
-                            (<ul key={index} className="wrap-ul-hidden">
-                                <li>{item.UserName}</li>
-                                <li>{item.City+item.district + item.address}</li>
-                                <li>{item.mobile}</li>
-                                <li>{item.email}</li>
-                            </ul>)) : ''}
+                            (
+                                <ul key={index} className="wrap-ul-hidden">
+                                    <li>{item.UserName}</li>
+                                    <li>{item.City + item.district + item.address}</li>
+                                    <li>{item.mobile}</li>
+                                    <li>{item.email}</li>
+                                </ul>)) : ''}
                     </div>
                 ) : ''}
             </>

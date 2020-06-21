@@ -1,3 +1,11 @@
+body {
+  background-color: #555555;
+  color: rgb(197, 194, 194);
+}
+a {
+  color: rgb(216, 215, 215);
+}
+
 .container {
   width: 1260px;
   min-height: 100%;
@@ -179,22 +187,22 @@ figure {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  border-left: 1px dashed #afb1b6;
-  border-right: 1px dashed #afb1b6;
-  border-top: 1px dashed #afb1b6;
+  background-color: #ffffff;
+  color: #555555;
+
   padding: 10px;
 }
 
 .wrap-ul-hidden {
   list-style: none;
   display: grid;
-  grid-template-columns:  1fr 1fr 1fr 1fr;
-  border-left: 1px dashed #afb1b6;
-  border-right: 1px dashed #afb1b6;
-  border-bottom: 1px dashed #afb1b6;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
   padding: 0;
   padding-bottom: 12px;
-  padding: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #555555;
 }
 
 .img-fit {
@@ -208,9 +216,15 @@ figure {
   padding-top: 20px;
   padding-bottom: 40px;
   border-bottom: 1px solid #f2f3f5;
-
   justify-content: center;
   align-content: center;
 }
 
-
+.info {
+  background-color: #FECC2F;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.div-gradient {
+}
