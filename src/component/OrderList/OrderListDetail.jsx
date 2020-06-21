@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { FaTrashAlt } from 'react-icons/fa';
-import { IoIosAddCircleOutline } from "react-icons/io";
 import Map from './Shipping'
 import { withRouter } from 'react-router-dom';
 import Compeleted from './Compeleted'
@@ -38,7 +37,6 @@ const OrderListDetail = (props) => {
         const result = await axios(
             'http://localhost:5000/Orders/api/OrderListDeatail');
         await sethiddenID(result.data.rows.filter((i) => (i.orderId == orderId)))
-
     }
 
     useEffect(() => {

@@ -7,7 +7,7 @@ import city from "../../API/AllData.json";
 import CartCheckOutButton from '../Order-cart-checkOut/CartCheckOutButton.jsx'
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { cartItemsSelect, favoriteItemsSelect } from '../../redux/cart/cart-selector';
+import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
 
 async function addToSever(item) {
@@ -69,12 +69,7 @@ async function addordersToSever(item) {
 }
 
 
-
-
-
-
-
-const CheckOutPage = ({ cartItems, history }) => {
+const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
     // console.log(history.location.state.pay)
 
     // console.log(props.location.state)
@@ -94,15 +89,38 @@ const CheckOutPage = ({ cartItems, history }) => {
     const [Total, setTotal] = useState(0)
     const [Member, setMember] = useState(10)
     const [pay, setpay] = useState('現金')
+    const [data, setData] = useState({ rows: [] });
 
     // console.log(Total)
     useEffect(() => {
-        setTotal(cartItems.reduce((acc, cart) => (acc.quantity * acc.price + cart.quantity * cart.price)))
+        setTotal(SelectTotal)
     }, [])
     useEffect(() => {
         setpay(history.location.state.pay)
         console.log(pay)
     }, [pay])
+
+
+    //////////
+
+
+
+    useEffect(() => {
+        const FetchData = async () => {
+            const result = await axios(
+                'http://localhost:5000/Orders/api/OrderList');
+            setData(result.data)
+        }
+        FetchData();
+    }, []);
+
+
+    const next = () => {
+        history.push(`/OrderCompleted/${69}`, {
+
+        })
+    }
+
 
 
     return (
@@ -141,7 +159,7 @@ const CheckOutPage = ({ cartItems, history }) => {
                             recipientMobile,
                             recipientAddress,
                             recipientEmail,
-                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })))
+                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })), next())
                     }}
                 >
                     <div className="content-wrap-Checkoutpage">
@@ -318,6 +336,8 @@ const CheckOutPage = ({ cartItems, history }) => {
 const mapStateToProps = createStructuredSelector({
     cartItems: cartItemsSelect,
     cartFavoriteItems: favoriteItemsSelect,
+    SelectTotal: SelectTotal
+
 });
 
 export default withRouter(connect(mapStateToProps)(CheckOutPage))

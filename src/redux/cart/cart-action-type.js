@@ -9,7 +9,7 @@ export const cartActionTypes = {
 
 
   REDUCE_ITEM: "REDUCE_ITEM",
-  PLUS_ITEM: "PLUS_ITEM",
+  CHANGEFAVR_ITEM: "CHANGEFAVR_ITEM",
 
 
 

@@ -30,16 +30,19 @@ export const addQuantity = (item, quantity) => ({
   quantity,
 });
 
-export const PlusItem = (item) => ({
 
-  type: cartActionTypes.PLUS_ITEM,
+
+
+export const ReduceItem = item => ({
+  type: cartActionTypes.REDUCE_ITEM,
   payload: item,
 
 });
 
-export const ReduceItem = item => ({
 
-  type: cartActionTypes.REDUCE_ITEM,
+
+
+export const ChangeFavr = (item) => ({
+  type: cartActionTypes.CHANGEFAVR_ITEM,
   payload: item,
-
 });

@@ -4,6 +4,8 @@ import {
   removeCartItem,
   unlikeCartItem,
   RedeuceCartItem,
+  ChangeFavr,
+  FavCartItem
 } from "./cart-utils";
 
 const INITIAL_STATE = {
@@ -58,7 +60,28 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: RedeuceCartItem(state.cartItems, action.payload),
       };
 
-  
+
+
+
+
+
+
+    case cartActionTypes.CHANGEFAVR_ITEM:
+      return {
+        ...state,
+        
+        cartFavoriteItems: FavCartItem(
+          state.cartFavoriteItems,
+          action.payload
+        )
+        ,
+        cartItems: ChangeFavr(state.cartItems, action.payload),
+      };
+
+
+
+
+
 
     default:
       return state;

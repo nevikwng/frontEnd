@@ -11,15 +11,15 @@ import "./cart-dropdown.scss";
 
 const CartDropdown = ({ cartItems }) => (
   <div className="cart-dropdown">
-    {cartItems.length ? (
+    {cartItems ? (
       <div className="cart-items">
         {cartItems.map((cartItem) => (
           <CartItem key={cartItem.itemId} cartItem={cartItem} />
         ))}
       </div>
     ) : (
-      <span className="empty-message">Empty Cart</span>
-    )}
+        <span className="empty-message">Empty Cart</span>
+      )}
   </div>
 );
 

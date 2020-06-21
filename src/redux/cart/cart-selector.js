@@ -17,8 +17,8 @@ export const favoriteItemsSelect = createSelector(
   (cart) => cart.cartFavoriteItems
 );
 
-export const cartCountSelect = createSelector([cartItemsSelect], (cartItems) =>
-  cartItems.reduce((accumulatorQ, curQ) => accumulatorQ + curQ.quantity, 0)
+export const cartCountSelect = createSelector([cartItemsSelect], (cartItems) => cartItems ?
+  cartItems.reduce((accumulatorQ, curQ) => accumulatorQ + curQ.quantity, 0) : 0
 );
 
 export const likeCountSelect = createSelector(
@@ -28,6 +28,6 @@ export const likeCountSelect = createSelector(
 );
 
 
-export const SelectTotal = createSelector([cartItemsSelect], (cartItems) =>
-  cartItems.reduce((accumulatorQ, curQ) => accumulatorQ + curQ.quantity * curQ.price, 0)
+export const SelectTotal = createSelector([cartItemsSelect], (cartItems) => cartItems ?
+  cartItems.reduce((accumulatorQ, curQ) => accumulatorQ + curQ.quantity * curQ.price, 0) : 0
 );

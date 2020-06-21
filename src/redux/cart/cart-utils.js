@@ -21,25 +21,47 @@ export const unlikeCartItem = (cartFavoriteItems, item) => {
   return { ...cartFavoriteItems };
 };
 
-export const RedeuceCartItem = (cartItems, cartItemsToReduce) => {
 
+
+
+export const RedeuceCartItem = (cartItems, cartItemsToReduce) => {
   const existCartItem = cartItems.find(
     (cartItem) => cartItem.itemId === cartItemsToReduce.itemId
   );
-
   if (existCartItem === 1) {
     return cartItems.filter((cart => cart.itemId !== cartItemsToReduce.itemId))
   }
-
   return cartItems.map(
     cartItem => cartItem.itemId === cartItemsToReduce.itemId ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
-
   )
-
 };
 
 
 
+
+
+
+
+
+
+
+
+export const ChangeFavr = (cartItems, item) => {
+  return cartItems.filter((i) => i.itemId !== item.itemId)
+};
+
+
+
+
+
+//item 傳入的參數
+export const FavCartItem = (FavCartItem, item) => {
+
+
+  return [...FavCartItem, item]
+
+  
+};
 
 
 

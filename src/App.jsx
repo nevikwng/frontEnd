@@ -13,6 +13,7 @@ import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
 import CartList from "./component/Order-CartList/CartList";
 import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
 import OrderList from './component/OrderList/OrderList.js'
+import OrderCompleted from "./component/OrderCompleted/OrderCompleted";
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
 const ShopCollectionPage = lazy(() =>
@@ -23,6 +24,10 @@ const ShopItemPage = lazy(() => import("./pages/shop-item-page/ShopItemPage"));
 const HomePage = () => <div>Hi</div>;
 // APP component
 const App = () => {
+
+
+
+  
   return (
     <div>
       <Header />
@@ -47,6 +52,7 @@ const App = () => {
               <Route path="/CartList" component={CartList} />
               <Route path="/OrderList" component={OrderList} />
               <Route path="/CheckOutPage" component={CheckOutPage} />
+              <Route path="/OrderCompleted" component={OrderCompleted} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

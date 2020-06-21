@@ -8,28 +8,32 @@ import './CartListButton.scss'
 const CartListButton = ({ cartItems, history, SelectTotal }) => {
 
     // console.log(history.location.state)
-    console.log(SelectTotal)
+    console.log(cartItems)
 
     const [cubon, setcubon] = useState(0)
     const [payType, setpayType] = useState(0)
+    const [select, setselect] = useState('disabled')
 
+    const next = (cartItems) => {
 
-    const next = () => {
         if (payType == false) {
             alert('請選擇付款方式')
             return false
+        } else if (cartItems === 0) {
+            alert('購物車無商品請先添加商品')
+            return false
+        } else {
+            history.push('/CheckOutPage', {
+                pay: payType,
+                cubon: cubon,
+                cartItems: cartItems
+            })
         }
-        history.push('/CheckOutPage', {
-            pay: payType,
-            cubon: cubon,
-            cartItems: cartItems
-        })
-
     }
 
-
-
-
+    useEffect(() => (
+        cartItems.length === 0 ? setselect('disabled') : setselect()
+    ), [select])
 
 
     return (
@@ -46,7 +50,7 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
                 </select>
             </div>
             <div>
-                <select id="select-pay-type" value={cubon} name="PayType" required="required" className="select-type" onChange={(e) => (setcubon(e.target.value))}>
+                <select disabled={select} id="select-pay-type" value={cubon} name="PayType" required="required" className="select-type" onChange={(e) => (setcubon(e.target.value))}>
                     <option value="">請選擇優惠券</option>
                     <option value="100">100</option>
                     <option value="200">200</option>
