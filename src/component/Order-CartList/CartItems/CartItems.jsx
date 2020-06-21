@@ -7,7 +7,7 @@ import { FcCollapse } from "react-icons/fc";
 import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr } from '../../../redux/cart/cart-action';
 const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr }) => {
 
-    console.log(cartItems)
+    // console.log(cartItems)
     const [Total, setTotal] = useState(0)
 
     // console.log(cartItems)

@@ -8,18 +8,18 @@ import './CartListButton.scss'
 const CartListButton = ({ cartItems, history, SelectTotal }) => {
 
     // console.log(history.location.state)
-    console.log(cartItems)
 
     const [cubon, setcubon] = useState(0)
     const [payType, setpayType] = useState(0)
     const [select, setselect] = useState('disabled')
 
     const next = (cartItems) => {
+        // console.log(cartItems)
 
         if (payType == false) {
             alert('請選擇付款方式')
             return false
-        } else if (cartItems === 0) {
+        } else if (cartItems.length === 0) {
             alert('購物車無商品請先添加商品')
             return false
         } else {
@@ -57,7 +57,7 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
                     <option value="300">300</option>
                 </select>
             </div>
-            <button onClick={() => next()}>下一步</button>
+            <button onClick={() => next(cartItems)}>下一步</button>
         </div>
 
     )

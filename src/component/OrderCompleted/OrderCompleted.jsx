@@ -53,9 +53,9 @@ const OrderCompleted = ({ match, history }) => {
                             <li>付款方式</li>
                             <li>運送地址</li>
                         </ul>
-                        {data.map((list) => (
+                        {data.map((list, index) => (
                             <>
-                                <ul className="content-wrap-ul-compeleted">
+                                <ul key={index} className="content-wrap-ul-compeleted">
                                     <li>{list.orderId}</li>
                                     <li>{list.Total}</li>
                                     <li>{list.PayMentMethod}</li>

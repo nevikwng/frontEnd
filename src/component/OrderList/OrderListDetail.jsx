@@ -28,15 +28,21 @@ const OrderListDetail = (props) => {
     const [search, setSearch] = useState('');
     const [hidden, setHidden] = useState(false);
     const [hiddenID, sethiddenID] = useState();
+    const [address, setaddress] = useState();
+
     const [Value, setValue] = useState();
     const Shipping = props.location.pathname === '/OrderList/shipping'
     const compeleted = props.location.pathname === '/OrderList/compeleted'
     const Cancel = props.location.pathname === '/OrderList/Cancel'
 
     const ListToSever = async (orderId) => {
-        const result = await axios(
+        const product = await axios(
             'http://localhost:5000/Orders/api/OrderListDeatail');
-        await sethiddenID(result.data.rows.filter((i) => (i.orderId == orderId)))
+
+        const address = await axios(
+            'http://localhost:5000/Orders/api/address');
+        setaddress(address.data.filter((i) => (i.orderId == orderId)))
+        sethiddenID(product.data.rows.filter((i) => (i.orderId == orderId)))
     }
 
     useEffect(() => {
@@ -47,6 +53,8 @@ const OrderListDetail = (props) => {
         }
         FetchData();
     }, []);
+    console.log(address)
+    console.log(hiddenID)
 
     // useEffect(() => {
     //     const ListToSever = async (orderId) => {
@@ -89,7 +97,7 @@ const OrderListDetail = (props) => {
                         Shipping ? <Map data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
                             : compeleted ? <Compeleted data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
                                 : Cancel ? <OrderCancel data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
-                                    : <All data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
+                                    : <All data={data} search={search} address={address} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
                 }
             </div>
             <div className="notice-list">

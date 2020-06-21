@@ -178,7 +178,7 @@ figure {
 .wrap-ul-hidden-title {
   list-style: none;
   display: grid;
-  grid-template-columns: 80px 350px 80px 200px 150px 80px 80px 80px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   border-left: 1px dashed #afb1b6;
   border-right: 1px dashed #afb1b6;
   border-top: 1px dashed #afb1b6;
@@ -188,7 +188,7 @@ figure {
 .wrap-ul-hidden {
   list-style: none;
   display: grid;
-  grid-template-columns: 80px 350px 80px 200px 150px 80px 80px 80px;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
   border-left: 1px dashed #afb1b6;
   border-right: 1px dashed #afb1b6;
   border-bottom: 1px dashed #afb1b6;

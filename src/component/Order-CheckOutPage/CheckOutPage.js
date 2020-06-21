@@ -116,9 +116,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
 
 
     const next = () => {
-        history.push(`/OrderCompleted/${69}`, {
-
-        })
+        history.push(`/OrderCompleted`)
     }
 
 
