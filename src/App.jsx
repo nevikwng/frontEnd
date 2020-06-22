@@ -31,7 +31,6 @@ const App = () => {
       <Header />
       <HomePage />
 
-      <div className="space" />
       <main>
         <Switch>
           <ErrorBoundary>
