@@ -1,0 +1,19 @@
+.HomePageContainer {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+}
+.h_iframe video {
+    width: 100%;
+    height: 100%;
+}
+.h_iframe {
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .MainIframe {
+        height: 100%;
+    }
+}

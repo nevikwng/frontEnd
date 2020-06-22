@@ -1,14 +1,13 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-
+import "./App.scss";
 // Pages----------
 import Header from "./component/header/Header";
-
+import HomePage from './pages/HomePage/Home'
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 
-import "./App.scss";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
 import CartList from "./component/Order-CartList/CartList";
 import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
@@ -21,22 +20,22 @@ const ShopCollectionPage = lazy(() =>
 );
 const ShopItemPage = lazy(() => import("./pages/shop-item-page/ShopItemPage"));
 
-const HomePage = () => <div>Hi</div>;
 // APP component
 const App = () => {
 
 
 
-  
+
   return (
     <div>
       <Header />
+      <HomePage />
+
       <div className="space" />
       <main>
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
-              <Route exact path="/" component={HomePage} />
 
               <Route exact path="/shopping" component={ShopPage} />
 

@@ -89,7 +89,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
     const [Total, setTotal] = useState(0)
     const [Member, setMember] = useState(10)
     const [pay, setpay] = useState('現金')
-    const [data, setData] = useState({ rows: [] });
+    const [data, setData] = useState([{ rows: [] }]);
 
     // console.log(Total)
     useEffect(() => {
