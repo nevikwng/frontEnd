@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import "./cart-icon.scss";
-import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
+import { shopping_bag } from "react-icons-kit/ikons/shopping_bag";
+import { Icon } from "react-icons-kit";
 
 import { taggleCartDropdown } from "../../redux/cart/cart-action";
 import {
@@ -11,15 +10,18 @@ import {
   cartHiddenSelect,
 } from "../../redux/cart/cart-selector";
 
+import "./cart-icon.scss";
+
 const CartIcon = ({ taggleCartDropdown, cartCount, hidden }) => (
   <div
+    style={{ color: "#1178B8" }}
     className="cart-icon"
     onMouseOver={() => {
       if (hidden) return;
       taggleCartDropdown();
     }}
   >
-    <ShoppingIcon className="shopping-icon" />
+    <Icon icon={shopping_bag} size={32} />
     <span className="item-count">{cartCount}</span>
   </div>
 );

@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 import "./header.scss";
 
 // Component-------------------------------
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
 import LikeIcon from "../like-icon/LikeIcon";
@@ -13,48 +14,79 @@ import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 import HeaderDropdown from "../header-dropdown/HeaderDropdown";
 
 // redux action-------------------------------
+import { navBarSelect } from "../../redux/nav-bar/navBar-action";
 
-const Header = () => {
+const Header = ({ navBarSelect }) => {
   const [subDiv, setSubDiv] = useState(false);
   return (
     <div className="header">
-      <div className="sub"></div>
-      <div className="main">
-        <div
-          className="options"
-          onMouseOver={() => {
-            if (subDiv) return;
-            setSubDiv(true);
-          }}
-        >
-          <Link to="/" className="option">
-            about
-          </Link>
-        </div>
+      <div className="header-spacing" />
+      <div
+        className={`hamburger-btn ${subDiv ? "hamburger-clicked" : ""}`}
+        onClick={() => setSubDiv(!subDiv)}
+      >
+        <div className="" />
+        <div className="" />
+        <div className="" />
+      </div>
 
+      <div className="main">
         <Link to="/" className="logo-container">
-          Logo
+          <Logo className="logo" />
         </Link>
 
         <div
           className="options"
           onMouseOver={() => {
+            // navBarSelect("shop");
             if (subDiv) return;
-            setSubDiv(true);
+            // setSubDiv(true);
           }}
         >
+          <Link to="/" className="option">
+            about
+          </Link>
+
           <Link
             to="/shopping"
             className="option"
             onClick={() => setSubDiv(false)}
+            onMouseEnter={() => {
+              navBarSelect("shop");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
           >
             Shop
+          </Link>
+          <Link
+            to="/courses"
+            className="option"
+            onClick={() => setSubDiv(false)}
+            onMouseEnter={() => {
+              navBarSelect("coach");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
+          >
+            Coach
+          </Link>
+          <Link
+            to="/articles"
+            className="option"
+            onClick={() => setSubDiv(false)}
+            onMouseEnter={() => {
+              navBarSelect("article");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
+          >
+            Article
           </Link>
         </div>
       </div>
 
       <div className="sub" onMouseOver={() => setSubDiv(false)}>
-        <LikeIcon />
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
@@ -68,4 +100,8 @@ const mapStateToProps = createStructuredSelector({
   hidden: cartHiddenSelect,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  navBarSelect: (select) => dispatch(navBarSelect(select)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

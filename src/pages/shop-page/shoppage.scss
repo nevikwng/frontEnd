@@ -37,7 +37,7 @@
         margin: 50px 0 30px 0;
 
         div {
-            width: 44%;
+            width: 42%;
             background-color: black;
             height: 3px;
             // position: absolute;
@@ -118,6 +118,18 @@
             }
             &.media-style {
                 flex-direction: column-reverse;
+            }
+        }
+        .shop-page-newitem-title-container {
+            div {
+                width: 37%;
+            }
+        }
+    }
+    @media screen and (max-width: 576px) {
+        .shop-page-newitem-title-container {
+            div {
+                width: 30%;
             }
         }
     }
