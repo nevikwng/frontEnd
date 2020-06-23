@@ -6,23 +6,23 @@ import PhotosImgFront from './PhotosImgFront.png'
 
 const HomePage = () => {
 
-    window.onscroll = function () {
-        var windowH = document.documentElement.clientHeight;//網頁可視區域高度
-        //windowH = window.innerHeight;
-        //windowH=window.scrollY;
-        var documentH = document.documentElement.offsetHeight;
-        //documentH=document.documentElement.offsetHeight;
-        var scrollH = document.documentElement.scrollTop;
-        console.log(windowH)
-        console.log(scrollH)
-        console.log(documentH)
+        window.onscroll = function () {
+            var windowH = document.documentElement.clientHeight;//網頁可視區域高度
+            //windowH = window.innerHeight;
+            //windowH=window.scrollY;
+            var documentH = document.documentElement.offsetHeight;
+            //documentH=document.documentElement.offsetHeight;
+            var scrollH = document.documentElement.scrollTop;
+            console.log(windowH)
+            console.log(scrollH)
+            console.log(documentH)
 
-        if (windowH + scrollH >= 1000) {
-            document.getElementById("VideoScroll").style.bottom = "150px";
-            document.getElementById("VideoScroll").style.left = "1000px";
+            if (windowH + scrollH >= 1000) {
+                document.getElementById("VideoScroll").style.bottom = "150px";
+                document.getElementById("VideoScroll").style.left = "1000px";
 
+            }
         }
-    }
 
 
     return (
@@ -48,8 +48,12 @@ const HomePage = () => {
                         </figure>
                     </div>
                     <div className="NewsFont">
-                        <h3 className="about">關於我們</h3>
-                        <span>包含最熱門的飛輪、
+                        <h3 class="title">
+                            <span className="news">最新消息</span>
+                        </h3>
+
+
+                        <span className="NewsFontIntroduction">包含最熱門的飛輪、
                         舞蹈、瑜珈、LESM
                         ILLS、MOSSA與獨
                         家系列，有氧老師
@@ -64,70 +68,97 @@ const HomePage = () => {
             </div>
             <div className="HomePageContainer">
                 <div className="CoachBoxPageContainer">
-                    <div className="coachBox">
+                    <div className="CoachTitle">
+                        <h3>教練名單</h3>
+                    </div>
+                    <div className="CoachBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
-                        <div className="nameShadow">
-                            小明
+                   
                     </div>
-                    </div>
-                    <div className="coachBox">
+                    <div className="CoachBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
-                        <div className="nameShadow">
-                            小明
+                 
                     </div>
-                    </div>
-                    <div className="coachBox">
+                    <div className="CoachBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
-                        <div className="nameShadow">
-                            小明
+                      
                     </div>
-                    </div>
-                    <div className="coachBox">
+                    <div className="CoachBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
-                        <div className="nameShadow">
-                            小明
-                    </div>
-                    </div>
-                    <div className="coachBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
-                        <div className="nameShadow">
-                            小明
-                    </div>
+                     
                     </div>
                 </div>
-                <div className="CoachBoxPageContainer">
-                    <div className="coachBox">
+
+            </div>
+            <div className="HomePageContainer">
+                <div className="ProductBoxPageContainer">
+                    <div className="CoachTitle">
+                        <h3>最新商品</h3>
+                    </div>
+                    <div className="ProductBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
-                    <div className="coachBox">
+                    <div className="ProductBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
-                    <div className="coachBox">
+                    <div className="ProductBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
-                    <div className="coachBox">
+                    <div className="ProductBox">
+                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <div className="nameShadow">
+                            小明
+                    </div>
+                    </div>
+                    <div className="ProductBox">
+                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <div className="nameShadow">
+                            小明
+                    </div>
+                    </div>
+                    <div className="ProductBox">
+                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <div className="nameShadow">
+                            小明
+                    </div>
+                    </div>
+                    <div className="ProductBox">
+                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <div className="nameShadow">
+                            小明
+                    </div>
+                    </div>
+                    <div className="ProductBox">
+                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <div className="nameShadow">
+                            小明
+                    </div>
+                    </div>
+                    <div className="ProductBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
                         <div className="nameShadow">
                             <span>小明</span>
                         </div>
                     </div>
-                    <div className="coachBox">
+                    <div className="ProductBox">
                         <img className="objcetFit" src={PhotosImgbackground} />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                 </div>
+
             </div>
+
         </>
     )
 }
