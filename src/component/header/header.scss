@@ -28,7 +28,7 @@
     justify-content: space-around;
     align-items: flex-start;
     div {
-      background-color: #fecc2f;
+      background-color: #1178b8;
       width: 2rem;
       height: 2px;
       margin-left: 10px;
@@ -37,7 +37,6 @@
       transition: all 0.4s;
       div {
         width: 2.2rem;
-        // background-color: rgb(231, 186, 231);
         margin-left: 0;
 
         &:nth-child(1) {
@@ -80,16 +79,21 @@
     //     flex: 1;
     // }
     .options {
-      width: 30%;
-      height: 100%;
+      // width: 30%;
+      // height: 100%;
       display: flex;
       align-items: flex-end;
       justify-content: center;
 
       .option {
         margin: 10px 15px;
-        // padding: 10px 15px;
+        transition: all 0.4s;
         cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+          font-weight: bolder;
+        }
       }
     }
   }
@@ -101,6 +105,10 @@
     align-items: center;
     justify-content: space-around;
     // margin-left: auto;
+    &.sub-cart {
+      justify-content: flex-end;
+      padding-right: 15px;
+    }
   }
 }
 

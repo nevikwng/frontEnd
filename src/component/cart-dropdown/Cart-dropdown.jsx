@@ -36,6 +36,7 @@ const CartDropdown = ({
       <div className="cart-dropdown" onMouseLeave={() => taggleCartDropdown()}>
         <div className="cart-icon-fav-container">
           <LikeIcon />
+          <div style={{ width: "15px" }} />
           <CartIcon />
         </div>
 

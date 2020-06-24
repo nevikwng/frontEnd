@@ -50,7 +50,7 @@ a {
     border: transparent;
     cursor: pointer;
     font-size: 2rem;
-    color: rgb(216, 71, 173);
+    color: #1178b8;
     transition: 0.5s;
     opacity: 0.7;
     &:hover {
@@ -71,6 +71,6 @@ a {
     bottom: 0 !important;
 
     li button:before {
-        color: purple !important;
+        color: #1178b8 !important;
     }
 }

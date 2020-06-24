@@ -35,10 +35,22 @@
     margin: 10px 0;
   }
   .top-sub-div {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    a {
+      padding-bottom: 5px;
+      // transition: all 0.3s;
+
+      &:hover {
+        // transform: scale(1.1) translateY(-5px);
+        padding-bottom: 2px;
+        border-bottom: 3px #1178b8 solid;
+      }
+    }
   }
 
   .side-sub-div {
@@ -56,7 +68,7 @@
       // display: inline-block;
       &:hover {
         padding-bottom: 2px;
-        border-bottom: 3px plum solid;
+        border-bottom: 3px #1178b8 solid;
       }
     }
 
@@ -74,7 +86,7 @@
         // display: inline-block;
         &:hover {
           padding-bottom: 2px;
-          border-bottom: 3px plum solid;
+          border-bottom: 3px #1178b8 solid;
         }
       }
     }

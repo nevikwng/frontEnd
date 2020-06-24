@@ -9,7 +9,6 @@ import "./header.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
-import LikeIcon from "../like-icon/LikeIcon";
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 import HeaderDropdown from "../header-dropdown/HeaderDropdown";
 
@@ -43,9 +42,9 @@ const Header = ({ navBarSelect }) => {
             // setSubDiv(true);
           }}
         >
-          <Link to="/" className="option">
+          {/* <Link to="/" className="option">
             about
-          </Link>
+          </Link> */}
 
           <Link
             to="/shopping"
@@ -57,7 +56,7 @@ const Header = ({ navBarSelect }) => {
               setSubDiv(true);
             }}
           >
-            Shop
+            精選商城
           </Link>
           <Link
             to="/courses"
@@ -69,7 +68,7 @@ const Header = ({ navBarSelect }) => {
               setSubDiv(true);
             }}
           >
-            Coach
+            教練課程
           </Link>
           <Link
             to="/articles"
@@ -81,12 +80,12 @@ const Header = ({ navBarSelect }) => {
               setSubDiv(true);
             }}
           >
-            Article
+            心得討論
           </Link>
         </div>
       </div>
 
-      <div className="sub" onMouseOver={() => setSubDiv(false)}>
+      <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
