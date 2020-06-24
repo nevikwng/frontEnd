@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
 
-const All = ({ data, search, hiddenID, ListToSever, history, DelToSever, address }) => {
+const All = ({ data, hiddenID, ListToSever, history, DelToSever, address }) => {
     const [hidden, setHidden] = useState(false);
     const [Value, setValue] = useState();
     console.log(address)
@@ -19,7 +19,7 @@ const All = ({ data, search, hiddenID, ListToSever, history, DelToSever, address
                     </li>
                     {item.OrderStatus == 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus == 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽<span className="service" onClick={() => history.push('/customerservice')}>客服中心</span></li>}
                 </ul>
-                {hidden && Value == item.orderId ? (
+                {hidden && Value === item.orderId ? (
                     <div className="wrap-ul-hidden-container">
                         <span className="info">商品詳細資訊</span>
                         <ul className="wrap-ul-hidden-title">

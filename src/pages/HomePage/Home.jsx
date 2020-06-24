@@ -3,26 +3,26 @@ import './Home.scss';
 import GYM2 from '../../API/GYM.mp4';
 import PhotosImgbackground from './PhotosImgbackground1.png'
 import PhotosImgFront from './PhotosImgFront.png'
-
+import CoachBackGround from './CoachBackGround.jpg'
 const HomePage = () => {
 
-        window.onscroll = function () {
-            var windowH = document.documentElement.clientHeight;//網頁可視區域高度
-            //windowH = window.innerHeight;
-            //windowH=window.scrollY;
-            var documentH = document.documentElement.offsetHeight;
-            //documentH=document.documentElement.offsetHeight;
-            var scrollH = document.documentElement.scrollTop;
-            console.log(windowH)
-            console.log(scrollH)
-            console.log(documentH)
+    window.onscroll = function () {
+        var windowH = document.documentElement.clientHeight;//網頁可視區域高度
+        //windowH = window.innerHeight;
+        //windowH=window.scrollY;
+        var documentH = document.documentElement.offsetHeight;
+        //documentH=document.documentElement.offsetHeight;
+        var scrollH = document.documentElement.scrollTop;
+        console.log(windowH)
+        console.log(scrollH)
+        console.log(documentH)
 
-            if (windowH + scrollH >= 1000) {
-                document.getElementById("VideoScroll").style.bottom = "150px";
-                document.getElementById("VideoScroll").style.left = "1000px";
+        if (windowH + scrollH >= 1000) {
+            document.getElementById("VideoScroll").style.bottom = "150px";
+            document.getElementById("VideoScroll").style.left = "1000px";
 
-            }
         }
+    }
 
 
     return (
@@ -67,9 +67,8 @@ const HomePage = () => {
                 </div>
             </div>
             <div className="HomePageContainer">
-
                 <div className="CoachBoxPageContainer">
-                    <div className="CoachTitle">
+                    {/* <div className="CoachTitle">
                         <h3>教練名單</h3>
                     </div>
                     <div className="CoachBox Coach grd">
@@ -77,7 +76,7 @@ const HomePage = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={CoachBackGround} />
 
                     </div>
                     <div className="CoachBox Coach grd">
@@ -103,7 +102,7 @@ const HomePage = () => {
                         <span></span>
                         <img className="objcetFit" src={PhotosImgbackground} />
 
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="HomePageContainer">
