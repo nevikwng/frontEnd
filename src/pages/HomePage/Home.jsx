@@ -1,7 +1,7 @@
 import React from "react";
 import './Home.scss';
 import GYM2 from '../../API/GYM.mp4';
-import PhotosImgbackground from './PhotosImgbackground.png'
+import PhotosImgbackground from './PhotosImgbackground1.png'
 import PhotosImgFront from './PhotosImgFront.png'
 
 const HomePage = () => {
@@ -67,28 +67,44 @@ const HomePage = () => {
                 </div>
             </div>
             <div className="HomePageContainer">
+
                 <div className="CoachBoxPageContainer">
                     <div className="CoachTitle">
                         <h3>教練名單</h3>
                     </div>
-                    <div className="CoachBox">
+                    <div className="CoachBox Coach grd">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                         <img className="objcetFit" src={PhotosImgbackground} />
-                   
+
                     </div>
-                    <div className="CoachBox">
+                    <div className="CoachBox Coach grd">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                         <img className="objcetFit" src={PhotosImgbackground} />
-                 
+
                     </div>
-                    <div className="CoachBox">
+                    <div className="CoachBox Coach grd">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                         <img className="objcetFit" src={PhotosImgbackground} />
-                      
+
                     </div>
-                    <div className="CoachBox">
+                    <div className="CoachBox Coach4 grd">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                         <img className="objcetFit" src={PhotosImgbackground} />
-                     
+
                     </div>
                 </div>
-
             </div>
             <div className="HomePageContainer">
                 <div className="ProductBoxPageContainer">
@@ -162,5 +178,4 @@ const HomePage = () => {
         </>
     )
 }
-
 export default HomePage
