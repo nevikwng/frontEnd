@@ -2,11 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-<<<<<<< HEAD
-=======
 import { CSSTransition } from "react-transition-group";
 // import { withRouter } from "react-router-dom";
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
 
 import CartItem from "../cart-item/Cart-item";
 
@@ -22,21 +19,6 @@ import LikeIcon from "../like-icon/LikeIcon";
 import CartIcon from "../cart-icon/Cart-icon";
 import CustomButton from "../custom-button/Custom-button";
 
-<<<<<<< HEAD
-const CartDropdown = ({ cartItems }) => (
-  <div className="cart-dropdown">
-    {cartItems ? (
-      <div className="cart-items">
-        {cartItems.map((cartItem) => (
-          <CartItem key={cartItem.itemId} cartItem={cartItem} />
-        ))}
-      </div>
-    ) : (
-        <span className="empty-message">Empty Cart</span>
-      )}
-  </div>
-);
-=======
 const CartDropdown = ({
   cartItems,
   cartFavoriteItems,
@@ -67,8 +49,8 @@ const CartDropdown = ({
               ))}
             </>
           ) : (
-            <span className="empty-message">快來選購心動的產品吧～</span>
-          )}
+              <span className="empty-message">快來選購心動的產品吧～</span>
+            )}
         </div>
 
         <div className="under-line" />
@@ -86,8 +68,8 @@ const CartDropdown = ({
               ))}
             </>
           ) : (
-            <span className="empty-message">快來收藏我喔～</span>
-          )}
+              <span className="empty-message">快來收藏我喔～</span>
+            )}
         </div>
         <CustomButton>結帳</CustomButton>
       </div>
@@ -98,7 +80,6 @@ const CartDropdown = ({
     document.getElementById("side-dropdown")
   );
 };
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
 
 const mapStateToProps = createStructuredSelector({
   cartItems: cartItemsSelect,

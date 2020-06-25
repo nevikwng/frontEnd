@@ -10,11 +10,8 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
-<<<<<<< HEAD
-=======
 import HeaderDropdown from "../header-dropdown/HeaderDropdown";
 
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
 // redux action-------------------------------
 import { navBarSelect } from "../../redux/nav-bar/navBar-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
@@ -23,16 +20,6 @@ const Header = ({ navBarSelect, shopShowFilterTag }) => {
   const [subDiv, setSubDiv] = useState(false);
   return (
     <div className="header">
-<<<<<<< HEAD
-      <div className="sub"></div>
-      <div className="main">
-        <div className="options" onMouseOver={() => setSubDiv(true)}>
-          <Link to="/CartList" className="option">
-            CartList
-          </Link>
-        
-        </div>
-=======
       <div className="header-spacing" />
       <div
         className={`hamburger-btn ${subDiv ? "hamburger-clicked" : ""}`}
@@ -42,7 +29,6 @@ const Header = ({ navBarSelect, shopShowFilterTag }) => {
         <div className="" />
         <div className="" />
       </div>
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
 
       <div className="main">
         <Link to="/" className="logo-container">

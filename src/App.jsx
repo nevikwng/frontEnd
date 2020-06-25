@@ -9,10 +9,7 @@ import Header from "./component/header/Header";
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
-import CartList from "./component/Order-CartList/CartList";
-import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
-import OrderList from './component/OrderList/OrderList.js'
-import OrderCompleted from "./component/OrderCompleted/OrderCompleted";
+
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
 const ShopCollectionPage = lazy(() =>
@@ -47,10 +44,7 @@ const App = () => {
                 path="/shopitem/:collection/:itemId"
                 component={ShopItemPage}
               />
-              <Route path="/CartList" component={CartList} />
-              <Route path="/OrderList" component={OrderList} />
-              <Route path="/CheckOutPage" component={CheckOutPage} />
-              <Route path="/OrderCompleted" component={OrderCompleted} />
+
             </Suspense>
           </ErrorBoundary>
         </Switch>

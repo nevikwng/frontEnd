@@ -14,21 +14,6 @@ import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 const CartItem = ({
   cartItem,
   removeItemFromCart,
-<<<<<<< HEAD
-}) => (
-    <div className="cart-item">
-      <img
-        onClick={() => removeItemFromCart(itemId)}
-        className="cart-item-delete"
-        src="https://img.icons8.com/color/48/000000/cancel--v1.png"
-        alt=""
-      />
-      <img className="cart-item-img" src={img1} alt="" />
-      <div className="item-details">
-        <span className="name">{name}</span>
-        <span className="price">
-          {quantity} x ${price}
-=======
   fav,
   unlikeCartItem,
   taggleCartDropdown,
@@ -72,19 +57,15 @@ const CartItem = ({
           }}
         >
           移除
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
         </span>
       </div>
     </div>
   );
-<<<<<<< HEAD
-=======
 };
 
 const mapStateToProps = createStructuredSelector({
   hidden: cartHiddenSelect,
 });
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
 
 const mapDispatchToProps = (dispatch) => ({
   removeItemFromCart: (itemId) => dispatch(removeItemFromCart(itemId)),

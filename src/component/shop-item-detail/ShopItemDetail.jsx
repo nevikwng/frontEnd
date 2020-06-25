@@ -16,11 +16,7 @@ import "./ShopItemDetail.scss";
 const ShopItemDetail = ({ history, shopItem }) => {
   // console.log(shopItem);
   const collection = useParams().collection;
-<<<<<<< HEAD
-  const { name, price, img1 } = shopItem;
-=======
   const { name, price, flavor, img1, img2, img3 } = shopItem;
->>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
   //   const imgArr = Object.values(imgObj);
   const imgArr = [img1, img2, img3];
   const [renderImg, setImg] = useState(img1);
