@@ -27,6 +27,11 @@ export const shopFilterTagSelect = createSelector(
   (shop) => shop.filterTag
 );
 
+export const shopFilterPriceTagSelect = createSelector(
+  [shopSelect],
+  (shop) => shop.filterPriceTag
+);
+
 export const shopPageCollectionsSelect = createSelector(
   [shopSelect],
   (shop) => shop.shopPageCollections

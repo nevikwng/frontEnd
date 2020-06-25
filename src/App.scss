@@ -1,7 +1,7 @@
 body {
     font-family: "Open Sans Condensed", sans-serif;
     overflow-x: hidden;
-    background: #e3e3e3;
+    // background: #e3e3e3;
     // color: black;
 }
 
@@ -23,20 +23,34 @@ a {
 }
 
 .space {
-    height: 6.6rem;
+    height: 9rem;
+}
+@media screen and (max-width: 1260px) {
+    main {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    main {
+        width: 95vw;
+    }
+    .space {
+        height: 7rem;
+    }
 }
 
 .next-arrow,
 .prev-arrow {
     z-index: 4;
     position: absolute;
-    top: 45%;
+    top: 40%;
     background: transparent;
     outline: transparent;
     border: transparent;
     cursor: pointer;
     font-size: 2rem;
-    color: rgb(216, 71, 173);
+    color: #1178b8;
     transition: 0.5s;
     opacity: 0.7;
     &:hover {
@@ -57,6 +71,6 @@ a {
     bottom: 0 !important;
 
     li button:before {
-        color: purple !important;
+        color: #1178b8 !important;
     }
 }

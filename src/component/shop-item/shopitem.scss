@@ -19,11 +19,38 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    span {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    .shop-item-price {
+      margin-bottom: 10px;
+    }
 
     .shop-fav-container {
       position: absolute;
       right: 0;
       top: 305px;
     }
+  }
+}
+
+// @media screen and (max-width: 1440px) {
+//   .shop-item {
+//     width: px;
+//     // height: 350px;
+//   }
+// }
+
+@media screen and (max-width: 1260px) {
+  .shop-item {
+    width: 260px;
+    // height: 350px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shop-item {
+    width: 295px;
   }
 }

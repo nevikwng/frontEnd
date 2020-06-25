@@ -7,10 +7,10 @@
   letter-spacing: 0.5px;
   //   line-height: 45px;
   font-size: 16px;
-  background-color: #e3e3e3;
-  border: rgb(216, 71, 173) 3px solid;
+  background-color: transparent;
+  border: #1178b8 3px solid;
   // border-radius: 10px;
-  color: rgb(216, 71, 173);
+  color: #1178b8;
   text-transform: uppercase;
   font-family: "Open Sans Condensed";
   font-weight: bolder;
@@ -20,8 +20,8 @@
   align-items: center;
 
   &:hover {
-    background-color: rgb(216, 71, 173);
-    color: #e3e3e3;
+    background-color: #1178b8;
+    color: white;
     // border: 1px solid black;
   }
   // &:active {

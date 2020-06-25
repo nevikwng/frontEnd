@@ -8,11 +8,12 @@ const INITIAL_STATE = {
   shopItemDetail: [],
   errorMessage: undefined,
   preCollections: [],
-  filterTag: [],
+  filterTag: "選擇篩選",
+  filterPriceTag: "選擇篩選",
   shopUrl: {
     food: ["cookie", "portein"],
-    men: ["shirts", "shorts"],
-    women: ["shirts", "shorts"],
+    men: ["shirt", "pants"],
+    women: ["clothes", "pants"],
   },
 };
 
@@ -72,6 +73,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         collections: [...filterPrice(state.collections, action.payload)],
+        filterPriceTag: action.payload,
       };
     case shopActionTypes.SHOP_ITEMTYPE_FILTER:
       return {
@@ -82,7 +84,8 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case shopActionTypes.SHOP_FILTER_TAG:
       return {
         ...state,
-        filterTag: [...state.filterTag, action.payload],
+        filterTag: action.payload,
+        filterPriceTag: "選擇篩選",
       };
     case shopActionTypes.SHOP_CLEAN_FILTER:
       return {

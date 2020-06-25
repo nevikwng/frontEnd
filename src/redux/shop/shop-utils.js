@@ -1,5 +1,5 @@
 export const filterPrice = (collections, price) => {
-  if (price === "lower") {
+  if (price === "由低至高") {
     // console.log("fire");
     return collections.sort((a, b) => a.price - b.price);
   } else {

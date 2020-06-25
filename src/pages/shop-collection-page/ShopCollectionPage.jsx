@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import LoadingSpinner from "../../component/loading-spinner/LoadingSpinner";
 import ShopItem from "../../component/shop-item/ShopItem";
@@ -26,7 +26,15 @@ const ShopCollectionPage = ({
   // console.log(collection, itemType);
 
   useEffect(() => {
+    if (collection === "men" || collection === "women") {
+      document.body.style = "background: #ecedef;";
+    } else {
+      document.body.style = "background: #e3e3e3;";
+    }
     shopFetchStart(collection, itemType);
+
+    // ComponentWillUnMount
+    return () => (document.body.style = "background: white;");
   }, [collection, shopFetchStart, itemType]);
   return (
     <div className="collection-page">
@@ -34,22 +42,22 @@ const ShopCollectionPage = ({
         <LoadingSpinner />
       ) : (
         <>
-          <h1 className="collection-title">{collection}</h1>
+          <h1 className="collection-title">
+            {collection === "men"
+              ? "男士服飾系列"
+              : collection === "women"
+              ? "女士服飾系列"
+              : "高蛋白食品系列"}
+          </h1>
           <div className="filter-bar-container">
-            {shopUrl[collection] &&
-              shopUrl[collection].map((type) => (
-                <Link
-                  key={type}
-                  to={`/shop/${collection}/${type}`}
-                  onClick={() => shopFetchStart(undefined, type)}
-                >
-                  {type}
-                </Link>
-              ))}
             <FilterBar
-              filterPrice={["lower", "highter"]}
+              filterCollection={shopUrl[collection]}
+              title={"篩選條件"}
+              collection={collection}
+            />
+            <FilterBar
+              filterPrice={["由低至高", "由高至低"]}
               title={"價格排序"}
-              filterTitle={"Price"}
             />
           </div>
           <div className="collection-container">

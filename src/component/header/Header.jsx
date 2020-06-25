@@ -6,16 +6,24 @@ import { createStructuredSelector } from "reselect";
 import "./header.scss";
 
 // Component-------------------------------
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
-import LikeIcon from "../like-icon/LikeIcon";
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
-// redux action-------------------------------
+<<<<<<< HEAD
+=======
+import HeaderDropdown from "../header-dropdown/HeaderDropdown";
 
-const Header = ({ hidden }) => {
+>>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
+// redux action-------------------------------
+import { navBarSelect } from "../../redux/nav-bar/navBar-action";
+import { shopShowFilterTag } from "../../redux/shop/shop-action";
+
+const Header = ({ navBarSelect, shopShowFilterTag }) => {
   const [subDiv, setSubDiv] = useState(false);
   return (
     <div className="header">
+<<<<<<< HEAD
       <div className="sub"></div>
       <div className="main">
         <div className="options" onMouseOver={() => setSubDiv(true)}>
@@ -24,40 +32,82 @@ const Header = ({ hidden }) => {
           </Link>
         
         </div>
+=======
+      <div className="header-spacing" />
+      <div
+        className={`hamburger-btn ${subDiv ? "hamburger-clicked" : ""}`}
+        onClick={() => setSubDiv(!subDiv)}
+      >
+        <div className="" />
+        <div className="" />
+        <div className="" />
+      </div>
+>>>>>>> fcd6c0c155c507860d54c8e286ffb43f0f51a233
 
+      <div className="main">
         <Link to="/" className="logo-container">
-          Logo
+          <Logo className="logo" />
         </Link>
 
-        <div className="options" onMouseOver={() => setSubDiv(true)}>
+        <div
+          className="options"
+          onMouseOver={() => {
+            // navBarSelect("shop");
+            if (subDiv) return;
+            // setSubDiv(true);
+          }}
+        >
+          {/* <Link to="/" className="option">
+            about
+          </Link> */}
+
           <Link
             to="/shopping"
             className="option"
-            onClick={() => setSubDiv(false)}
+            onClick={() => {
+              shopShowFilterTag("選擇篩選");
+              setSubDiv(false);
+            }}
+            onMouseEnter={() => {
+              navBarSelect("shop");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
           >
-            Shop
+            精選商城
+          </Link>
+          <Link
+            to="/courses"
+            className="option"
+            onClick={() => setSubDiv(false)}
+            onMouseEnter={() => {
+              navBarSelect("coach");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
+          >
+            教練課程
+          </Link>
+          <Link
+            to="/articles"
+            className="option"
+            onClick={() => setSubDiv(false)}
+            onMouseEnter={() => {
+              navBarSelect("article");
+              if (subDiv) return;
+              setSubDiv(true);
+            }}
+          >
+            心得討論
           </Link>
         </div>
       </div>
-      <div className="sub">
-        <LikeIcon />
+
+      <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
         <CartIcon />
       </div>
-      <div
-        className={`${subDiv ? "show-sub-div" : ""} sub-div`}
-        onMouseLeave={() => setSubDiv(false)}
-      >
-        <Link to="/shop/men" className="" onClick={() => setSubDiv(false)}>
-          Men
-        </Link>
-        <Link to="/shop/women" className="" onClick={() => setSubDiv(false)}>
-          Women
-        </Link>
-        <Link to="/shop/food" className="" onClick={() => setSubDiv(false)}>
-          Food
-        </Link>
-      </div>
-      {hidden ? null : <CartDropdown />}
+      <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
+      <CartDropdown />
     </div>
   );
 };
@@ -67,4 +117,9 @@ const mapStateToProps = createStructuredSelector({
   hidden: cartHiddenSelect,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  navBarSelect: (select) => dispatch(navBarSelect(select)),
+  shopShowFilterTag: (tag) => dispatch(shopShowFilterTag(tag)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

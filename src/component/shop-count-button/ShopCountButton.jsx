@@ -20,14 +20,14 @@ const ShopCountButton = ({ cartItem, addQuantity }) => {
           onClick={() => (quantity === 1 ? null : setQuantity(quantity - 1))}
           icon={leftBtn}
           size={30}
-          style={{ color: "pink", cursor: "pointer" }}
+          style={{ color: "#1178b8", cursor: "pointer" }}
         />
         <span>{quantity}</span>
         <Icon
           onClick={() => setQuantity(quantity + 1)}
           icon={rightBtn}
           size={30}
-          style={{ color: "pink", cursor: "pointer" }}
+          style={{ color: "#1178b8", cursor: "pointer" }}
         />
       </div>
       <CustomButton shopCount onClick={() => addQuantity(cartItem, quantity)}>
