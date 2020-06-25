@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './CartList.scss'
 import { FaRegListAlt } from 'react-icons/fa';
 import { connect } from "react-redux";

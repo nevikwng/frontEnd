@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../../redux/cart/cart-selector';
+import { SelectTotal } from '../../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
 
 import './CartListButton.scss'
@@ -16,7 +16,7 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
     const next = (cartItems) => {
         // console.log(cartItems)
 
-        if (payType == false) {
+        if (payType === false) {
             alert('請選擇付款方式')
             return false
         } else if (cartItems.length === 0) {
@@ -33,7 +33,7 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
 
     useEffect(() => (
         cartItems.length === 0 ? setselect('disabled') : setselect()
-    ), [select])
+    ), [cartItems.length, select])
 
 
     return (

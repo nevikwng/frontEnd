@@ -1,13 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import './FavoriteItems.scss'
-import { FaTrashAlt, FaAngleRight, FaStar, FaAngleLeft } from 'react-icons/fa';
+import { FaTrashAlt} from 'react-icons/fa';
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-
 import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, unlikeCartItem } from '../../../redux/cart/cart-action';
 import { favoriteItemsSelect } from '../../../redux/cart/cart-selector';
-const FavoriteItem = ({ cartFavoriteItems, unlikeCartItem, removeItemFromCart }) => {
+const FavoriteItem = ({ cartFavoriteItems, unlikeCartItem }) => {
 
     return (
         <>

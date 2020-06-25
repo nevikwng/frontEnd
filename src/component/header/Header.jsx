@@ -10,7 +10,6 @@ import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
 import LikeIcon from "../like-icon/LikeIcon";
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
-import CartList from "../Order-CartList/CartList";
 // redux action-------------------------------
 
 const Header = ({ hidden }) => {

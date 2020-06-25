@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 import './OrderCompleted.scss'
 
-const OrderCompleted = ({ match, history }) => {
+const OrderCompleted = ({  history }) => {
     // console.log(match.params.orderId)
     const [data, setData] = useState([]);
     useEffect(() => {

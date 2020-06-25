@@ -6,11 +6,10 @@ import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../redux/c
 import { withRouter } from 'react-router-dom';
 
 
-const CartCheckOutButton = ({ cartItems, history, addToSever, additemToSever, SelectTotal }) => {
+const CartCheckOutButton = ({ history, addToSever, additemToSever, SelectTotal }) => {
 
 
     const [cubon, setcubon] = useState(0)
-    const [Total, setTotal] = useState(0)
     const [payType, setpayType] = useState('信用卡')
     const back = () => {
         history.push('/CartList', {
@@ -23,10 +22,10 @@ const CartCheckOutButton = ({ cartItems, history, addToSever, additemToSever, Se
 
     useEffect(() => {
         setcubon(history.location.state.cubon)
-    }, [cubon])
+    }, [cubon, history.location.state.cubon])
     useEffect(() => {
         setpayType(history.location.state.pay)
-    }, [payType])
+    }, [history.location.state.pay, payType])
     return (
         <div className="content-right">
             <div>總計：</div>
@@ -34,7 +33,7 @@ const CartCheckOutButton = ({ cartItems, history, addToSever, additemToSever, Se
             <div>折扣：{cubon}</div>
             <div>總計：{SelectTotal - cubon}</div>
             <button onClick={() => back()}>修改付款方式</button>
-            <button type="submit" onClick={() => (addToSever, additemToSever)}>結帳</button>
+            <button type="submit" onClick={() => ((addToSever, additemToSever))}>結帳</button>
         </div >
     )
 }

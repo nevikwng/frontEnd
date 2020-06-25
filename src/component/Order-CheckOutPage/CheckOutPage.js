@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import "./CheckOutPage.scss";
 import { FaRegListAlt } from "react-icons/fa";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import city from "../../API/AllData.json";
 import CartCheckOutButton from '../Order-cart-checkOut/CartCheckOutButton.jsx'
 import { connect } from "react-redux";
@@ -87,33 +87,25 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
     const [recipientEmail, setrecipientEmail] = useState(null);
     const [checkbox, setcheckbox] = useState(false);
     const [Total, setTotal] = useState(0)
+    //尚未連結會員
     const [Member, setMember] = useState(10)
     const [pay, setpay] = useState('現金')
-    const [data, setData] = useState([{ rows: [] }]);
 
     // console.log(Total)
     useEffect(() => {
         setTotal(SelectTotal)
-    }, [])
+    }, [SelectTotal])
     useEffect(() => {
         setpay(history.location.state.pay)
         console.log(pay)
-    }, [pay])
+    }, [history.location.state.pay, pay])
 
 
     //////////
 
 
 
-    useEffect(() => {
-        const FetchData = async () => {
-            const result = await axios(
-                'http://localhost:5000/Orders/api/OrderList');
-            setData(result.data)
-        }
-        FetchData();
-    }, []);
-
+ 
 
     const next = () => {
         history.push(`/OrderCompleted`)
@@ -192,7 +184,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
                                     onChange={(event) => setDistrict(event.target.value)}
                                 >
                                     {city
-                                        .filter((i) => i.CityName == Select)
+                                        .filter((i) => i.CityName === Select)
                                         .map((i) =>
                                             i.AreaList.map((i, index) => (
                                                 <option key={index} value={i.AreaName}>
@@ -273,7 +265,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
                                         >
                                             {recipientSelect == null
                                                 ? city
-                                                    .filter((i) => i.CityName == "臺北市")
+                                                    .filter((i) => i.CityName === "臺北市")
                                                     .map((i) =>
                                                         i.AreaList.map((i, index) => (
                                                             <option key={index} value={i.AreaName}>
@@ -282,7 +274,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
                                                         ))
                                                     )
                                                 : city
-                                                    .filter((i) => i.CityName == recipientSelect)
+                                                    .filter((i) => i.CityName === recipientSelect)
                                                     .map((i) =>
                                                         i.AreaList.map((i, index) => (
                                                             <option key={index} value={i.AreaName}>

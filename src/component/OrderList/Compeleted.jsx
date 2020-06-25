@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from 'react'
+/* eslint-disable no-sequences */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable eqeqeq */
+import React, { useState } from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
 
 
 
-const OrderCompleted = ({ data, search, hiddenID, ListToSever, history, DelToSever }) => {
+const OrderCompleted = ({ data, hiddenID, ListToSever, history, DelToSever }) => {
     const [hidden, setHidden] = useState(false);
     const [Value, setValue] = useState();
 
     return (
-        data.rows.filter((i) => (i.OrderStatus == 0)).map((item, index) => (
+        data.rows.filter((i) => (i.OrderStatus == '0')).map((item, index) => (
             <>
                 <ul key={index} className="wrap-ul">
-                    <li><a href="">{item.orderId}</a></li>
+                    <li><span>{item.orderId}</span></li>
                     <li>{item.created_at}</li>
                     <li>$ {item.Total}</li>
                     <li>{item.PayMentMethod}</li>
-                    {item.OrderStatus == 1 ? <li>交易進行中</li> : item.OrderStatus == 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
+                    {item.OrderStatus === 1 ? <li>交易進行中</li> : item.OrderStatus == 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
                     <li className="productdetail">
                         <button className="button-two" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
                     </li>
-                    {item.OrderStatus == 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus == 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽<span className="service" onClick={() => history.push('/customerservice')}>客服中心</span></li>}
+                    {item.OrderStatus === 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus === 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽<span className="service" onClick={() => history.push('/customerservice')}>客服中心</span></li>}
                 </ul>
                 {hidden && Value == item.orderId ? (
                     <div className="wrap-ul-hidden-container">

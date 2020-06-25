@@ -20,7 +20,7 @@ const Favorite = ({
   useEffect(() => {
     // console.log("fire");
     cartFavoriteItems && setIsFavorited(!!cartFavoriteItems[item.itemId]);
-  }, []);
+  }, [cartFavoriteItems, item.itemId]);
 
   const toFavHandler = () => {
     likeCartItem(item);

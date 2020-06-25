@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { FaTrashAlt, FaAngleRight, FaStar, FaAngleLeft } from 'react-icons/fa';
+/* eslint-disable jsx-a11y/alt-text */
+import React from 'react'
+import { FaTrashAlt, FaStar } from 'react-icons/fa';
 import './CartItems.scss'
 import { connect } from "react-redux";
-import { FcCollapse } from "react-icons/fc";
 
 import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr } from '../../../redux/cart/cart-action';
 const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr }) => {
 
     // console.log(cartItems)
-    const [Total, setTotal] = useState(0)
 
     // console.log(cartItems)
 
@@ -32,8 +31,8 @@ const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, C
                     </li>
                     <li value={item.quantity * item.price} >{item.quantity * item.price}</li>
                     <ul className="icon-list">
-                        <a className="icon" onClick={() => removeItemFromCart(item.itemId)} ><FaTrashAlt /></a>
-                        <a className="icon" onClick={() => ChangeFavr(item)}><FaStar /></a>
+                        <div className="icon" onClick={() => removeItemFromCart(item.itemId)} ><FaTrashAlt /></div>
+                        <div className="icon" onClick={() => ChangeFavr(item)}><FaStar /></div>
                     </ul>
                 </ul>
 
