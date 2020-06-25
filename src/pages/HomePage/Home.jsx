@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import './Home.scss';
 import GYM2 from '../../API/GYM.mp4';
 import PhotosImgbackground from './PhotosImgbackground1.png'
 import PhotosImgFront from './PhotosImgFront.png'
 import CoachBackGround from './CoachBackGround.jpg'
 const HomePage = () => {
+
+
+
 
     window.onscroll = function () {
         var windowH = document.documentElement.clientHeight;//網頁可視區域高度
@@ -18,11 +21,16 @@ const HomePage = () => {
         console.log(documentH)
 
         if (windowH + scrollH >= 1000) {
-            document.getElementById("VideoScroll").style.bottom = "150px";
-            document.getElementById("VideoScroll").style.left = "1000px";
+            const VideoScroll = document.getElementById("VideoScroll")
+
+            VideoScroll.style.bottom = "150px";
+            VideoScroll.style.left = "20%";
 
         }
     }
+
+
+
 
 
     return (
@@ -66,10 +74,12 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div className="HomePageContainer">
-                <div className="CoachBoxPageContainer">
-                    {/* <div className="CoachTitle">
-                        <h3>教練名單</h3>
+
+
+            <div className="CoachBoxPageContainer">
+                <div class="bg-text">
+                    <div className="CoachTitle">
+                        <h3>Coach List</h3>
                     </div>
                     <div className="CoachBox Coach grd">
                         <span></span>
@@ -102,13 +112,14 @@ const HomePage = () => {
                         <span></span>
                         <img className="objcetFit" src={PhotosImgbackground} />
 
-                    </div> */}
+                    </div>
                 </div>
             </div>
+
             <div className="HomePageContainer">
                 <div className="ProductBoxPageContainer">
                     <div className="CoachTitle">
-                        <h3>最新商品</h3>
+                        <h3>最新課程</h3>
                     </div>
                     <div className="ProductBox">
                         <img className="objcetFit" src={PhotosImgbackground} />

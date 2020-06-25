@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import "./App.scss";
 // Pages----------
 import Header from "./component/header/Header";
-// import HomePage from './pages/HomePage/Home'
+import HomePage from './pages/HomePage/Home'
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      {/* <HomePage /> */}
+      <HomePage />
 
       <main>
         <Switch>

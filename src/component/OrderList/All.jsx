@@ -7,6 +7,8 @@ const All = ({ data, hiddenID, ListToSever, history, DelToSever, address }) => {
     const [hidden, setHidden] = useState(false);
     const [Value, setValue] = useState();
     console.log(address)
+
+
     return (
         data.rows.map((item, index) => (
             <>

@@ -29,6 +29,7 @@ const OrderListDetail = (props) => {
     const [hidden, setHidden] = useState(false);
     const [hiddenID, sethiddenID] = useState();
     const [address, setaddress] = useState();
+
     const [Value, setValue] = useState();
     const Shipping = props.location.pathname === '/OrderList/shipping'
     const compeleted = props.location.pathname === '/OrderList/compeleted'
@@ -44,6 +45,8 @@ const OrderListDetail = (props) => {
         sethiddenID(product.data.rows.filter((i) => (i.orderId === orderId)))
     }
 
+
+
     useEffect(() => {
         const FetchData = async () => {
             const result = await axios(
@@ -52,7 +55,12 @@ const OrderListDetail = (props) => {
         }
         FetchData();
     }, []);
-   
+
+
+
+
+    console.log(address)
+    console.log(hiddenID)
 
     // useEffect(() => {
     //     const ListToSever = async (orderId) => {
@@ -86,10 +94,10 @@ const OrderListDetail = (props) => {
                             <li>{item.created_at}</li>
                             <li>$ {item.Total}</li>
                             <li>{item.PayMentMethod}</li>
-                            {item.OrderStatus === 1 ? <li>交易進行中</li> : item.OrderStatus === 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
+                            {item.OrderStatus == 1 ? <li>交易進行中</li> : item.OrderStatus == 2 ? <li> 交易取消 </li> : <li>交易完成</li>}
                             <li className="productdetail">
-                                <button className="button-two" value={item.orderId} onClick={(e) => ((setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value)))}>點我查看</button>
-                            </li>{item.OrderStatus === 1 ? <li><span className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></span></li> : item.OrderStatus === 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽客服中心</li>}
+                                <button className="button-two" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
+                            </li>{item.OrderStatus == 1 ? <li><a className="icon" onClick={() => { DelToSever(item.orderId) }}><FaTrashAlt /></a></li> : item.OrderStatus == 2 ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽客服中心</li>}
                         </ul>
                     )) :
                         Shipping ? <Map data={data} search={search} hidden={hidden} hiddenID={hiddenID} Value={Value} ListToSever={ListToSever} DelToSever={DelToSever} />
