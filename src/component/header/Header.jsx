@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -9,15 +9,31 @@ import "./header.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import CartIcon from "../cart-icon/Cart-icon";
 import CartDropdown from "../cart-dropdown/Cart-dropdown";
-import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 import HeaderDropdown from "../header-dropdown/HeaderDropdown";
+import CustomButton from "../custom-button/Custom-button";
+
+// Select
+import { cartHiddenSelect } from "../../redux/cart/cart-selector";
+import { navBarSelect } from "../../redux/nav-bar/navBar-action";
+import { currentUserSelect } from "../../redux/user/user-selector";
+import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
 
 // redux action-------------------------------
-import { navBarSelect } from "../../redux/nav-bar/navBar-action";
+import { userLogout } from "../../redux/user/user-action";
+import { employeeLogout } from "../../redux/employee/employee-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
 
-const Header = ({ navBarSelect, shopShowFilterTag }) => {
+const Header = ({
+  navBarSelect,
+  shopShowFilterTag,
+  currentUser,
+  userLogout,
+  currentEmployee,
+  employeeLogout,
+}) => {
   const [subDiv, setSubDiv] = useState(false);
+  const history = useHistory();
+
   return (
     <div className="header">
       <div className="header-spacing" />
@@ -38,15 +54,9 @@ const Header = ({ navBarSelect, shopShowFilterTag }) => {
         <div
           className="options"
           onMouseOver={() => {
-            // navBarSelect("shop");
             if (subDiv) return;
-            // setSubDiv(true);
           }}
         >
-          {/* <Link to="/" className="option">
-            about
-          </Link> */}
-
           <Link
             to="/shopping"
             className="option"
@@ -90,6 +100,20 @@ const Header = ({ navBarSelect, shopShowFilterTag }) => {
       </div>
 
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
+        {currentEmployee ? (
+          <CustomButton onClick={() => employeeLogout()}>教練登出</CustomButton>
+        ) : (
+          <CustomButton onClick={() => history.push("/employeelogin")}>
+            教練登入
+          </CustomButton>
+        )}
+        {currentUser ? (
+          <CustomButton onClick={() => userLogout()}>登出</CustomButton>
+        ) : (
+          <CustomButton onClick={() => history.push("/login")}>
+            登入
+          </CustomButton>
+        )}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
@@ -101,11 +125,15 @@ const Header = ({ navBarSelect, shopShowFilterTag }) => {
 // redux mapState & mapDispatch
 const mapStateToProps = createStructuredSelector({
   hidden: cartHiddenSelect,
+  currentUser: currentUserSelect,
+  currentEmployee: currentEmployeeSelect,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   navBarSelect: (select) => dispatch(navBarSelect(select)),
   shopShowFilterTag: (tag) => dispatch(shopShowFilterTag(tag)),
+  userLogout: () => dispatch(userLogout()),
+  employeeLogout: () => dispatch(employeeLogout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

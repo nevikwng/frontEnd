@@ -49,8 +49,8 @@ const CartDropdown = ({
               ))}
             </>
           ) : (
-              <span className="empty-message">快來選購心動的產品吧～</span>
-            )}
+            <span className="empty-message">快來選購心動的產品吧～</span>
+          )}
         </div>
 
         <div className="under-line" />
@@ -68,8 +68,8 @@ const CartDropdown = ({
               ))}
             </>
           ) : (
-              <span className="empty-message">快來收藏我喔～</span>
-            )}
+            <span className="empty-message">快來收藏我喔～</span>
+          )}
         </div>
         <CustomButton>結帳</CustomButton>
       </div>
