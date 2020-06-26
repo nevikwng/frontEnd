@@ -10,7 +10,7 @@ import { userLogin } from "../../redux/user/user-action";
 import { createStructuredSelector } from "reselect";
 import { userListSelect } from "../../redux/user/user-selector";
 import axios from 'axios'
-class SignIn extends React.Component {
+class SingUP extends React.Component {
   state = {
     email: "",
     password: "",
@@ -91,4 +91,4 @@ const mapDispatchToProps = (dispatch) => ({
   userLogin: (user) => dispatch(userLogin(user)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SingUP));

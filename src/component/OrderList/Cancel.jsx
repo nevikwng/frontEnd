@@ -8,7 +8,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 const OrderCancel = ({ data, search, hiddenID, ListToSever, history, DelToSever }) => {
     const [hidden, setHidden] = useState(false);
     const [Value, setValue] = useState();
-    console.log('123',data.rows)
+    console.log('123', data.rows)
     return (
         data.rows.filter((i) => (i.OrderStatus === '2')).map((item, index) => (
             <>

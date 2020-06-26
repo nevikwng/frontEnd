@@ -2,7 +2,7 @@ import React from 'react'
 import './OrdessrList.scss'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa';
-import OrderListDetail from './OrderListDetail.jsx'
+import OrderListDetail from '../../component/OrderList/OrderListDetail.jsx'
 
 
 const OrderList = () => {
