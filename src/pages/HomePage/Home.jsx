@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './Home.scss';
 import GYM2 from '../../API/GYM.mp4';
 import PhotosImgbackground from './PhotosImgbackground1.png'
@@ -23,7 +23,7 @@ const HomePage = () => {
         if (windowH + scrollH >= 1000) {
             const VideoScroll = document.getElementById("VideoScroll")
 
-            VideoScroll.style.bottom = "150px";
+            VideoScroll.style.bottom = "200px";
             VideoScroll.style.left = "20%";
 
         }
@@ -49,10 +49,10 @@ const HomePage = () => {
                 <div className="NewsPageContainer">
                     <div className="ImgContainer">
                         <figure className="GYMImagePhotos">
-                            <img className="objcetFit" src={PhotosImgbackground}></img>
+                            <img className="objcetFit" src={PhotosImgbackground} alt=""></img>
                         </figure>
                         <figure className="GYMImagePhotos2">
-                            <img className="objcetFit" src={PhotosImgFront}></img>
+                            <img className="objcetFit" src={PhotosImgFront} alt=""></img>
                         </figure>
                     </div>
                     <div className="NewsFont">
@@ -86,7 +86,7 @@ const HomePage = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <img className="objcetFit" src={CoachBackGround} />
+                        <img className="objcetFit" src={CoachBackGround} alt="" />
 
                     </div>
                     <div className="CoachBox Coach grd">
@@ -94,7 +94,7 @@ const HomePage = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
 
                     </div>
                     <div className="CoachBox Coach grd">
@@ -102,7 +102,7 @@ const HomePage = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
 
                     </div>
                     <div className="CoachBox Coach4 grd">
@@ -110,7 +110,7 @@ const HomePage = () => {
                         <span></span>
                         <span></span>
                         <span></span>
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
 
                     </div>
                 </div>
@@ -122,61 +122,61 @@ const HomePage = () => {
                         <h3>最新課程</h3>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             <span>小明</span>
                         </div>
                     </div>
                     <div className="ProductBox">
-                        <img className="objcetFit" src={PhotosImgbackground} />
+                        <img className="objcetFit" src={PhotosImgbackground} alt="" />
                         <div className="nameShadow">
                             小明
                     </div>

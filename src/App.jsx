@@ -19,7 +19,7 @@ import EmployeeSignInOutPage from "./pages/employee-sign-in-out-page/employee-si
 // import CartList from "./component/Order-CartList/CartList";
 // import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
 // import OrderCompleted from "./component/OrderCompleted/OrderCompleted";
-
+import HomePage from './pages/HomePage/Home'
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
@@ -38,7 +38,7 @@ const ShopCollectionPage = lazy(() =>
 const ShopItemPage = lazy(() => import("./pages/shop-item-page/ShopItemPage"));
 // -----------
 
-const HomePage = () => <div>Hi</div>;
+// const HomePage = () => <div>Hi</div>;
 
 // APP component
 const App = ({ userListStart, employeeListStart }) => {
@@ -49,13 +49,13 @@ const App = ({ userListStart, employeeListStart }) => {
 
   return (
     <div>
+      {/* <HomePage /> */}
       <Header />
-      <div className="space" />
+
       <main>
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
-              <Route exact path="/" component={HomePage} />
               <Route exact path="/shopping" component={ShopPage} />
               <Route
                 exact
