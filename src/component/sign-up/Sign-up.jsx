@@ -11,6 +11,7 @@ import { createStructuredSelector } from "reselect";
 import { userListSelect } from "../../redux/user/user-selector";
 import axios from 'axios'
 class SingUP extends React.Component {
+
   state = {
     email: "",
     password: "",
@@ -22,18 +23,11 @@ class SingUP extends React.Component {
     e.preventDefault();
     console.log('123')
     axios.post(`http://localhost:5000/api/user/insertUser`, {
-      method: "POST",
-      credentials: "include", // 需傳送 Cookie 必須開啟
-      headers: new Headers({
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }),
-      data: {
-        memberAccount: this.state.email,
-        memberPwd: this.state.password,
-        memberName: this.state.name,
-        memberPhoneNum: this.state.mobile,
-      }
+      memberAccount: this.state.email,
+      memberPwd: this.state.password,
+      memberName: this.state.name,
+      memberPhoneNum: this.state.mobile,
+
     });
   };
 

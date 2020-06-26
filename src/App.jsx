@@ -29,6 +29,7 @@ import { userListStart } from "./redux/user/user-action";
 import { employeeListStart } from "./redux/employee/employee-action";
 
 import "./App.scss";
+import MemberEdit from "./component/Member-Edit/Member-Edit";
 // 
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
@@ -86,8 +87,8 @@ const App = ({ userListStart, employeeListStart }) => {
               <Route path="/CartList" component={CartList} />
               <Route path="/OrderListDetail" component={OrderListDetail} />
               <Route path="/CheckOutPage" component={CheckOutPage} />
-              <Route path="/OrderCompleted" component={OrderCompleted} /> */}
-
+              <Route path="/OrderCompleted" component={OrderCompleted} />*/}
+              <Route path="/MemberEdit" component={MemberEdit} />  
 
             </Suspense>
           </ErrorBoundary>

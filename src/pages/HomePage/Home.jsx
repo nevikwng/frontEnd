@@ -16,9 +16,7 @@ const HomePage = () => {
         var documentH = document.documentElement.offsetHeight;
         //documentH=document.documentElement.offsetHeight;
         var scrollH = document.documentElement.scrollTop;
-        console.log(windowH)
-        console.log(scrollH)
-        console.log(documentH)
+    
 
         if (windowH + scrollH >= 1000) {
             const VideoScroll = document.getElementById("VideoScroll")
